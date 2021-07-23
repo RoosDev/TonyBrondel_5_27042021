@@ -1,0 +1,70 @@
+#ficheGlobale{
+    width: 100%;
+
+}
+
+    #cameraDescrip img{
+        width: 80%;
+        margin : 5px auto 10px auto;
+        border-radius: 10%;
+        
+    }
+
+    #ficheBuy{
+        border-radius: 15px;
+        background-color: rgb(255, 243, 205);
+        max-height : 450px;
+
+    }
+    #ficheBuy__Price--Title{
+        width: 80%;
+        margin : 5px auto 5px auto;
+        text-align: center;
+        font-size : 1.5em;
+        font-weight: bold;
+        text-decoration: underline;
+
+
+    }
+
+    #ficheBuy__Price{
+        width: 80%;
+        margin : 5px auto 5px auto;
+        text-align: center;
+        font-size : 2em;
+        font-weight: bold;
+
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+        form label{
+            width: 90%;
+            margin: 20px auto 10px auto ;
+        }
+
+        form select{
+            width: 50%;
+            margin: 5px auto 10px auto ;
+
+        }
+    
+    
+        form input{
+            width: 50px;
+            margin: 5px auto 10px auto ;
+
+        }
+
+
+
+        form button{
+            width: 100%;
+            margin : 25px auto 5px auto;
+        }

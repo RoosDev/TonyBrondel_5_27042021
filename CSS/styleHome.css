@@ -1,0 +1,36 @@
+
+#cardsList{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .card{
+        margin: 20px;
+
+    }
+        .H5Center{
+            text-align: center;
+        }
+        
+        .card-img-top{
+            width: 100%;
+            height: 50%;
+        }
+        .cardBoxBodyA{
+        margin : 5px ;
+        }
+
+
+
+
+
+.flexrow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
