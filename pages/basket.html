@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
     <link rel="stylesheet" href="../css/styleCommun.css" />  
-    <link rel="stylesheet" href="../css/styleFiche.css" />  
+    <link rel="stylesheet" href="../css/styleBasket.css" />  
 
 
 
@@ -37,40 +37,36 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="row">
 
-                <h1 id="cameraTitle" class="display-3"></h1>
-
-
-                <div id="ficheGlobale" class="row border-success">
-                    <div id="ficheDetail" class="col-lg-9">
-                        <div id="cameraDescrip">
-                            <img id="cameraDescripImg" src="" alt="Un super appareil photo"/>
-                            <p id="cameraDescripP"></p>
-                        </div>
-                        <div id="cameraLens"></div>
-                    </div>
-                    <div id="blocbuy--border" class="col-lg-3">
-                        <div id="ficheBuy">
-                            <div id="ficheBuy__Price--Title">Prix TTC : </div>
-                            <div id="ficheBuy__Price"></div>
-                            <hr class="my-2">
-                            <form id="form">
-                                <label for="lensSelected">Choisissez votre objectif </label>
-                                <select id="lensSelected" class="form-control" required>
-                                </select>
-                                <label for="quantityOrdered"> Quantité : <em>(pour toute commande supérieure à 5 veuillez nous contacter directement)</em></label>
-                                <input type="number" id="quantityOrdered"step="1" min="1" max="5" placeholder="0" required>
-
-                                <button type="submit" id="addToBasket" class="btn btn-success">Ajouter au panier</button>
-                            </form>
-                        </div>
+                <h1 id="basketTitle" class="display-3">Votre panier</h1>
+                <hr class="my-2">
+                 
+            </div>
+            <div id="tableOfProductsBought" col="row">
+                <div id="TOPB__List" class="col-8">
+                    
 
                 </div>
+                <div id="TOPB__ColAmount" class="col-4">
+                    <div id="TOPB__boxAmounts">
+                        <div id="TOPB__CodePromo" class="margin5">
+                            <form>
+                                <label class="h5" for="CodePromoInside">Votre code promo :</label><br />
+                                <input type="text" id="CodePromoInside" size="30" placeholder="ex: MERCIKODAK"><button type="button">valider</button>
+                            </form>
+                        </div>
+                        <div id="TOPB__TotalAmounts" class="margin5">
+                        </div>
+                        <div id="TOPB__ValidBasket" class="margin5">
+                            <button type="button" class="btn btn-warning">Valider mon panier</button>
+                        </div>
+                </div>
+                            
+
             </div>
         </div>
     </main>
 </div>
 <hr class="my-2">
-
 <footer class="list-group-item-warning row">
     <div id="footer1st" class="col-2">
         <a href="#" class="" >Promotions</a>
@@ -94,7 +90,7 @@
 
 
 
-<script type="text/javascript" src="../JS/fiche.js"></script>
+<script type="text/javascript" src="../JS/basket.js"></script>
 
 
 </body>
