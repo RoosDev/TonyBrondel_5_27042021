@@ -12,7 +12,6 @@ async function getCamera() {
     .catch((error) => {
         console.log(error);
     });
-    console.log(result);
     return result;
 }
 
@@ -21,18 +20,18 @@ async function getCamera() {
 function galleryHome(camera){
     let cardBox                 = document.createElement('div');
     cardBox.classList.add("card") ;
-    cardBox.classList.add("col-3") ;
+    cardBox.classList.add("col-lg-3") ;
 
-    let cardBoxImage             = document.createElement('div');
+    let cardBoxImage            = document.createElement('div');
     cardBoxImage.classList.add("card-img") ;
 
     let cardBoxBody             = document.createElement('div');
     cardBoxBody.classList.add("card-body") ;
 
-    let cardBoxPrice             =      document.createElement('div');
+    let cardBoxPrice            =      document.createElement('div');
     
     
-    cardBoxImage.innerHTML           =       '<img src="' + camera.imageUrl + '" class="card-img-top" alt="' + camera.name + '"/ >';
+    cardBoxImage.innerHTML      =       '<img src="' + camera.imageUrl + '" class="card-img-top" alt="' + camera.name + '"/ >';
 
     let cardBoxPriceH5          =       document.createElement('h5');
     let cameraPrice             =       Number(camera.price)/100

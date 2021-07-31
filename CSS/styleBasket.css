@@ -1,0 +1,31 @@
+#TOPB__boxAmounts{
+    border: #ffc107 solid 3px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.margin5{
+    margin: 5px;
+}
+
+#TOPB__CodePromo, #TOPB__ValidBasket {
+    width: 100%;
+    display: flex;
+}
+
+#TOPB__CodePromo label, #TOPB__CodePromo input{
+    align-self: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#TOPB__CodePromo form, #TOPB__ValidBasket .btn{
+    width: 80%;
+    align-self: center;
+    margin-right: auto;
+    margin-left: auto;
+}

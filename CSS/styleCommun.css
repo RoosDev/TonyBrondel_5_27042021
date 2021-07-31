@@ -21,7 +21,7 @@ header{
 }
 
 .nav-item{
-    min-width: 200px;
+    min-width: 185px;
     
 }
 
@@ -42,6 +42,7 @@ footer div[id*="footer"]{
     color: azure;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 footer div[id*="footer"] a{
