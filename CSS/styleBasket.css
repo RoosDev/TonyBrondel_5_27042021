@@ -1,5 +1,8 @@
+
+
+
 #TOPB__boxAmounts{
-    border: #ffc107 solid 3px;
+    border: 3px solid #ffc107;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -29,3 +32,20 @@
     margin-right: auto;
     margin-left: auto;
 }
+
+.borderL{
+    border-left: 2px solid #ffc107;
+    border-bottom: 2px solid #ffc107;
+    border-radius: 15px;
+}
+
+.margeProduct{
+    margin-top: 5px;
+    margin-bottom: 5px;;
+}
+
+.centerFull{
+    margin:auto;
+
+}
+
