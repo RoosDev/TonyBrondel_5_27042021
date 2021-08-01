@@ -58,66 +58,107 @@ function listeObjectifs(camera) {
 function addBasket(camera){
 console.log(camera);
     let buyButton       =       document.querySelector('form');
-    
 
     //fonction d'ajout au panier (local storage)
 
+    //AU CLIC DECLENCHEMENT DE L ACTION
     buyButton.addEventListener('submit', function(e) {
+
+        // desactivation de la fonction de base du bouton
         e.preventDefault();
+
+        // récupération du contenu du panier dans le localstorage et conversion en tableau avec parse
         let cart        =       JSON.parse(localStorage.getItem("cart"));
+        let quantityAdd     =       Number(document.querySelector('#quantityOrdered').value);
+        const lensAdd         =       document.querySelector('#lensSelected').value;
+
+
+        // Vérification des prérequis
+        // La panier est il vide ?
+        // si non
 
         if(typeof cart !== 'undefined' &&cart != null){
-            console.log(cart);
-            cart.push({
-                            id          :   camera._id,
-                            cameraname  :   camera.name,
-                            price       :   camera.price,
-                            imageUrl    :   camera.imageUrl, 
-                            quantity    :   document.querySelector('#quantityOrdered').value,
-                            selectedLens:   document.querySelector('#lensSelected').value,
-                            });
-            console.log(camera);
-            console.log(cart);
-            localStorage.setItem("cart", JSON.stringify(cart));
-                    
+        // Vu que le produit comporte des produits, vérification de l'existance du produit en-cours d'ajout dans la panier
+
+            // Création de la fonction de recherche avec 2 arguments : id Produit +  objectif
+            function cameraInCart(cameraAdd){
+                return (cameraAdd.id == camera._id && cameraAdd.selectedLens == document.querySelector('#lensSelected').value);
+            }
+
+                let cartFind    =       cart.find(cameraInCart);
+            // fin de la fonction de recherche. Pour l'executer appeler l'objet : cartFind
+
+                // console.log("affichage du résultat de la recherche");
+                // console.log(cartFind);  
+                // console.log("affichage de la quantité de la recherche");
+                // console.log("affichage du panier complet");
+                // console.log(cart);
+                // console.log("fin du panier complet");
+            
+            //si le produit en-cours d'ajout est déja dans le panier
+            if(typeof cartFind != 'undefined'){
+                
+                // console.log("la quantité ajoutée avant modif");
+                // console.log(quantityAdd);
+                // on récupère la quantité déja au panier que l'on ajoute à la quantité demandée  pour mettre à jour la quantité
+                quantityAdd = quantityAdd + Number(cartFind.quantity);
+                // console.log(quantityAdd);
+
+                // console.log("fin de la nouvelle valeur de la quantité");
+                // console.log("index de la recherche : ");
+                let indexOfFind = cart.indexOf(cartFind);
+                // console.log(cart.indexOf(cartFind));
+
+                // console.log("fin des test sur la recherche");
+                // console.log("ajout du produit avec la nouvelle quantité");
+                
+                cart.push({
+                    id          :   camera._id,
+                    cameraname  :   camera.name,
+                    price       :   camera.price,
+                    imageUrl    :   camera.imageUrl, 
+                    quantity    :   quantityAdd,
+                    selectedLens:   lensAdd,
+                });
+                // console.log("suppression de la ligne avec la mauvaise quantité");
+
+                cart.splice(indexOfFind , 1);
+                
+                localStorage.setItem("cart", JSON.stringify(cart));
+            
+            }else{
+
+                cart.push({
+                                id          :   camera._id,
+                                cameraname  :   camera.name,
+                                price       :   camera.price,
+                                imageUrl    :   camera.imageUrl, 
+                                quantity    :   quantityAdd,
+                                selectedLens:   lensAdd,
+                });
+                localStorage.setItem("cart", JSON.stringify(cart));
+            }
         }else{
-            let cart        =       [
-                                        camera._id,
-                                        camera.name,
-                                        camera.price,
-                                        camera.imageUrl, 
-                                        document.querySelector('#quantityOrdered').value,
-                                        document.querySelector('#lensSelected').value
-                                    ];
 
-            console.log(camera);
-            console.log(cart);
+            // le panier est vide alors création du tableau et ajout du produit.
+            // console.log("le panier est vide alors création du tableau et ajout du produit.");
+
+            const cart        =       [];
+            cart.push({
+                        id          :   camera._id,
+                        cameraname  :   camera.name,
+                        price       :   camera.price,
+                        imageUrl    :   camera.imageUrl, 
+                        quantity    :   quantityAdd,
+                        selectedLens:   lensAdd,
+            });
+
+                // console.log(cart);
             localStorage.setItem("cart", JSON.stringify(cart));
-
+            
         }
 
-
     });
-
-    // buyButton.addEventListener('submit', function(e) {
-    //     e.preventDefault();
-    //     let cart      =    JSON.parse(localStorage.getItem('cart'));
-    //     if ((typeof cart !== 'undefined') && cart !== null){
-    //             cart.push({
-    //                 ...camera, 
-    //                 quantity    :   document.querySelector('#quantityOrdered').value,
-    //                 selectedLens:   document.querySelector('#lensSelected').value,
-
-    //             })
-    //         }else{
-    //             const cart = [...camera, quantity, selectedLens];
-    //         }
-
-    //     localStorage.setItem('cart', JSON.stringify(cart));
-
-    // });
-    
-
 
 }
 

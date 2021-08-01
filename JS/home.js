@@ -40,7 +40,7 @@ function galleryHome(camera){
     cardBoxPriceH5.classList.add("H5Center") ;
 
     let cardBoxBodyH5           =       document.createElement('h5');
-    cardBoxBodyH5.textContent   =       camera.name ;
+    cardBoxBodyH5.textContent   =       this.name ;
     cardBoxBodyH5.classList.add("card-title") ;
 
 
@@ -69,11 +69,27 @@ function galleryHome(camera){
 
 async function main() {
     const listCamera = await getCamera();
+    // class Products{
+    //     constructor(id, name, price, description, lenses, imageUrl){
+    //     this.id             =       camera._id;
+    //     this.name           =       camera.name;
+    //     this.price          =       camera.price; 
+    //     this.description    =       camera.description;
+    //     this.lenses         =       camea.lenses;
+    //     this.imageUrl       =       camera.imageUrl;
+    //     } 
+
+    //     listProducts(){
+    //         listCamera.forEach(result => {
+    //             galleryHome(result);        
+    //         });
+    //     }
+    // }
 
     listCamera.forEach(result => {
         galleryHome(result);        
     });
-   
+
 }
 
 main();
