@@ -18,10 +18,6 @@
 
 </head>
 <body>
-<div class="alert alert-success alert-dismissible fade show boxAlert" role="alert">
-    <strong><i class="fas fa-thumbs-up margin5"></i></strong> C'est dans le panier.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
 <div class="container">
     <header class="row bg-warning bg-gradient">
         <div id="header_logo" class="col-3">
@@ -32,8 +28,8 @@
                 <li class="nav-item"><a href="../index.html" class="nav-link active">Les appareils photo</a></li>
                 <li class="nav-item"><a href="" class="nav-link disabled">Les oursons tout mignon</a></li>
                 <li class="nav-item"><a href="" class="nav-link disabled">Les meubles</a></li>
-                <li class="nav-item"><a href="basket.html" class="nav-link"><i class="fas fa-shopping-cart"></i>0 produits</a></li>
-                <li class="nav-item"><a href="" class="nav-link disabled"><i class="fas fa-user"></i>Se connecter</a></li>
+                <li class="nav-item"><a href="basket.html" class="nav-link"><i class="fas fa-shopping-cart margin5"></i>0 produits</a></li>
+                <li class="nav-item"><a href="" class="nav-link disabled"><i class="fas fa-user margin5"></i>Se connecter</a></li>
             </ul>
         </nav>
     </header>
@@ -64,6 +60,10 @@
                                 <label for="quantityOrdered"> Quantité : <em>(pour toute commande supérieure à 5 veuillez nous contacter directement)</em></label>
                                 <input type="number" id="quantityOrdered"step="1" min="1" max="5" placeholder="0" required>
                                 <button type="submit" id="addToBasket" class="btn btn-success">Ajouter au panier</button>
+                                <div id="boxMessage" class="alert alert-success alert-dismissible fade show boxAlert hidden" role="alert">
+                                    <strong><i class="fas fa-thumbs-up margin5"></i></strong> C'est dans le panier.
+                                </div>
+                                
                             </form>
                         </div>
                     </div>

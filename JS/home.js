@@ -61,7 +61,7 @@ function galleryHome(camera){
     cardBoxPriceH5.classList.add("H5Center") ;
 
     let cardBoxBodyH5           =       document.createElement('h5');
-    cardBoxBodyH5.textContent   =       this.name ;
+    cardBoxBodyH5.textContent   =       camera.name ;
     cardBoxBodyH5.classList.add("card-title") ;
 
 

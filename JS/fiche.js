@@ -42,8 +42,8 @@ function ficheProduit(camera){
 let cameraLense;
 
 function listeObjectifs(camera) {
-    let listLens                            =       document.querySelector('#lensSelected');
-    let cameraLense                         =       camera.lenses;
+    let listLens            =       document.querySelector('#lensSelected');
+    let cameraLense         =       camera.lenses;
 
     //Boucle pour lister les objectifs en tableau :
     listLens.innerHTML += '<option value=""></option>';
@@ -57,7 +57,7 @@ function listeObjectifs(camera) {
 
 function addBasket(camera){
 console.log(camera);
-    let buyButton       =       document.querySelector('form');
+    let buyButton           =       document.querySelector('form');
 
     //fonction d'ajout au panier (local storage)
 
@@ -68,9 +68,9 @@ console.log(camera);
         e.preventDefault();
 
         // récupération du contenu du panier dans le localstorage et conversion en tableau avec parse
-        let cart        =       JSON.parse(localStorage.getItem("cart"));
+        let cart            =       JSON.parse(localStorage.getItem("cart"));
         let quantityAdd     =       Number(document.querySelector('#quantityOrdered').value);
-        const lensAdd         =       document.querySelector('#lensSelected').value;
+        const lensAdd       =       document.querySelector('#lensSelected').value;
 
 
         // Vérification des prérequis
@@ -83,12 +83,22 @@ console.log(camera);
             function cameraInCart(cameraAdd){
                 return (cameraAdd.id == camera._id && cameraAdd.selectedLens == document.querySelector('#lensSelected').value);
             }
-
                 let cartFind    =       cart.find(cameraInCart);
 
-                let boxMessage  =       document.querySelector('#basketMessage');
 
-
+                // Préparation de la fonction pour afficher un message de confirmation d'ajout au panier durant 5 secondes
+                let boxMessage;
+                let contenerAlert   =       document.querySelector('#boxMessage');
+                let buttonAdd       =       document.querySelector('#addToBasket');
+                function messageBasket() {  
+                    buttonAdd.classList.add('hidden');
+                    contenerAlert.classList.remove('hidden');
+                    boxMessage  =       window.setTimeout(messageBox, 5000);
+                }
+                    function messageBox(){
+                        contenerAlert.classList.add('hidden');
+                        buttonAdd.classList.remove('hidden');
+                    }
 
             // fin de la fonction de recherche. Pour l'executer appeler l'objet : cartFind
 
@@ -129,7 +139,7 @@ console.log(camera);
                 cart.splice(indexOfFind , 1);
                 
                 localStorage.setItem("cart", JSON.stringify(cart));
-            
+                messageBasket();
             }else{
 
                 cart.push({
@@ -141,7 +151,7 @@ console.log(camera);
                                 selectedLens:   lensAdd,
                 });
                 localStorage.setItem("cart", JSON.stringify(cart));
-                boxMessage.innerHTML    =   '<i class="fas fa-thumbs-up margin5"></i><p>c\'est dans le panier</p>'
+                messageBasket();
             }
         }else{
 
@@ -160,7 +170,7 @@ console.log(camera);
 
                 // console.log(cart);
             localStorage.setItem("cart", JSON.stringify(cart));
-            
+            messageBasket();            
         }
 
     });
