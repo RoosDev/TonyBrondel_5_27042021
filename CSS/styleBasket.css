@@ -1,23 +1,14 @@
 
 
 
-#TOPB__boxAmounts{
+#TOPB__ColAmount{
     border: 3px solid #ffc107;
     border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
 
 }
 
 .margin5{
     margin: 5px;
-}
-
-#TOPB__CodePromo, #TOPB__ValidBasket {
-    width: 100%;
-    display: flex;
 }
 
 #TOPB__CodePromo label, #TOPB__CodePromo input{
@@ -34,8 +25,8 @@
 }
 
 .borderL{
-    border-left: 2px solid #ffc107;
-    border-bottom: 2px solid #ffc107;
+    border-left: 3px solid #ffc107;
+    border-bottom: 3px solid #ffc107;
     border-radius: 15px;
 }
 
@@ -47,5 +38,9 @@
 .centerFull{
     margin:auto;
 
+}
+.centerFull h2{
+    margin: 130px;
+    text-align: center;
 }
 

@@ -28,112 +28,118 @@
                 <li class="nav-item"><a href="../index.html" class="nav-link active">Les appareils photo</a></li>
                 <li class="nav-item"><a href="" class="nav-link disabled">Les oursons tout mignon</a></li>
                 <li class="nav-item"><a href="" class="nav-link disabled">Les meubles</a></li>
-                <li class="nav-item"><a href="basket.html" class="nav-link"><i class="fas fa-shopping-cart"></i>0 produits</a></li>
-                <li class="nav-item"><a href="" class="nav-link disabled"><i class="fas fa-user"></i>Se connecter</a></li>
+                <li class="nav-item"><a href="basket.html" class="nav-link"><i class="fas fa-shopping-cart margin5"></i>0 produits</a></li>
+                <li class="nav-item"><a href="" class="nav-link disabled"><i class="fas fa-user margin5"></i>Se connecter</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <div class="jumbotron jumbotron-fluid">
-            <div class="row">
-
-                <h1 id="basketTitle" class="display-3">Votre panier</h1>
-                <hr class="my-2">
-                 
-            </div>
+            
+            
             <div id="tableOfProductsBought" class="row">
-                <div id="TOPB__List" class="col-lg-8">
-                    
-
-                </div>
-                <div id="TOPB__ColAmount" class="col-lg-4">
-                    <div id="TOPB__boxAmounts">
-                        <div id="TOPB__CodePromo" class="margin5">
-                            <form>
-                                <label class="h5" for="CodePromoInside" class="form-label">Votre code promo :</label>
-                                <div class="row g-3 align-items-center">
-                                    <div class="col-auto">
-                                        <input type="text" id="CodePromoInside"  class="form-control"size="20" placeholder="ex: MERCIKODAK">
-                                    </div> 
-                                    <div class="col-auto">
-                                        <button type="button" class="btn btn-light">valider</button>
-                                    </div> 
-                                </div>
-                            </form>
-                        </div>
-                        <div id="TOPB__TotalAmounts" class=" row margin5">
-                            <h3>Total du panier</h3>
-                            <div >
-                                <div class="labelHT">
-                                    <p>Montant HT :</p>
-                                </div>
-                                <div class="PriceHT">
-                                    <p class="PriceHTP"></p>
-                                </div>
-                            </div>
-                            <div >
-                                <div class="labelTVA">
-                                    <p>Montant TVA :</p>
-                                </div>
-                                <div class="PriceTVA">
-                                    <p class="PriceTVAP"></p>
-                                </div>
-                            </div>
-                            <div >
-                                <div class="labelTTC">
-                                    <p>Montant TTC :</p>
-                                </div>
-                                <div class="PriceTTC">
-                                    <p class="PriceTTCP"></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="TOPB__ValidBasket" class="margin5">
-                            <button type="button" class="btn btn-warning">Valider mon panier</button>
-                        </div>
+                <div id="TOPB__LeftBlock" class="col-lg-7">
+                    <div class="row">
+                        <h2 class="display-3">Votre panier</h2>
+                        <hr class="my-2">
                     </div>
-                </div>       
+                    <div id="TOPB__List" class="row">
+                        
+
+                    </div>
+                </div>
+                <div id="TOPB__RightBlock" class="col-lg-5">
+
+                <div id="TOPB_Form" class="row">
+                    <div id="formOrdererTitle" class="row">
+                        <h2 class="display-3">Vos informations</h2>
+                        <hr class="my-2">
+                    </div>
+                    <div id="formOrderer">
+                        <form>
+                            <div class="mb-3">
+                                <label for="lastname" class="form-label">Nom :</label>
+                                <input type="text" id="lastname" class="form-control" placeholder="Pranhune" size="30" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="firstname" class="form-label">Prénom :</label>
+                                <input type="text" id="firsname" class="form-control" placeholder="Jean" size="30" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="adress" class="form-label">Adresse :</label>
+                                <input type="text" id="adress" class="form-control" placeholder="12 rue mabble" size="50" required>
+                            </div>
+                            <div class="row g-3 align-items-center">
+                                <div class="col-4">
+                                    <label for="zipCode" class="form-label">Code postal :</label>
+                                    <input type="number" id="zipCode" class="form-control" placeholder="75000" size="8" required>
+                                </div>
+                                <div class="col-8">
+                                    <label for="city" class="form-label">Ville :</label>
+                                    <input type="text" id="city" class="form-control" placeholder="Paris" size="30" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">email :</label>
+                                <input type="email" id="email" class="form-control" placeholder="jeanpranhune@gmail.com" size="50" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Téléphone :</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="06 12 34 56 78 " size="50" required>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <hr class="my-2">
             </div>
-            <div class="row">
+            <div id="TOPB__ColAmount" class="row">
+                <div id="TOPB__boxAmounts" class="row">
+                    <div id="TOPB__CodePromo" class="col-lg-6 ">
+                        <form>
+                            <label class="h5" for="CodePromoInside" class="form-label">Votre code promo :</label>
+                            <div class="row g-3 align-items-center">
+                                <div class="col-auto">
+                                    <input type="text" id="CodePromoInside"  class="form-control"size="20" placeholder="ex: MERCIKODAK">
+                                </div> 
+                                <div class="col-auto">
+                                    <button type="button" class="btn btn-light">valider</button>
+                                </div> 
+                            </div>
+                        </form>
+                    </div>
+                    <div id="TOPB__TotalAmounts" class="col-lg-6">
+                        <h3>Total du panier</h3>
+                        <div >
+                            <div class="labelHT">
+                                <p>Montant HT :</p>
+                            </div>
+                            <div class="PriceHT">
+                                <p class="PriceHTP"></p>
+                            </div>
+                        </div>
+                        <div >
+                            <div class="labelTVA">
+                                <p>Montant TVA :</p>
+                            </div>
+                            <div class="PriceTVA">
+                                <p class="PriceTVAP"></p>
+                            </div>
+                        </div>
+                        <div >
+                            <div class="labelTTC">
+                                <p>Montant TTC :</p>
+                            </div>
+                            <div class="PriceTTC">
+                                <p class="PriceTTCP"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+                <div id="TOPB__ValidBasket" class="row ">
+                    <button type="button" id="id__ValidBasket" class="btn btn-warning">Valider mon panier</button>
+                </div>
+            </div>       
 
-                <h2 class="display-3">Vos informations</h2>
-                 
-            </div>
-            <div id="formOrderer">
-                <form>
-                    <div class="mb-3">
-                        <label for="lastname" class="form-label">Nom :</label>
-                        <input type="text" id="lastname" class="form-control" placeholder="Pranhune" size="30" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="firstname" class="form-label">Prénom :</label>
-                        <input type="text" id="firsname" class="form-control" placeholder="Jean" size="30" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="adress" class="form-label">Adresse :</label>
-                        <input type="text" id="adress" class="form-control" placeholder="12 rue mabble" size="50" required>
-                    </div>
-                    <div class="row g-3 align-items-center">
-                        <div class="col-2">
-                            <label for="zipCode" class="form-label">Code postal :</label>
-                            <input type="number" id="zipCode" class="form-control" placeholder="75000" size="8" required>
-                        </div>
-                        <div class="col-8">
-                            <label for="city" class="form-label">Ville :</label>
-                            <input type="text" id="city" class="form-control" placeholder="Paris" size="30" required>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">email :</label>
-                        <input type="email" id="email" class="form-control" placeholder="jeanpranhune@gmail.com" size="50" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Téléphone :</label>
-                        <input type="tel" id="phone" class="form-control" placeholder="06 12 34 56 78 " size="50" required>
-                    </div>
-                </form>
-            </div>
         </div>
     </main>
 </div>

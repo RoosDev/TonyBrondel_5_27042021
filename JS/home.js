@@ -1,5 +1,26 @@
-//connexion au back-end récupération des données et intégration dans un tableau
+// Mise en place des class
 
+    // class Products{
+    //     constructor(id, name, price, description, lenses, imageUrl){
+    //     this.id             =       camera._id;
+    //     this.name           =       camera.name;
+    //     this.price          =       camera.price; 
+    //     this.description    =       camera.description;
+    //     this.lenses         =       camera.lenses;
+    //     this.imageUrl       =       camera.imageUrl;
+    //     } 
+
+    //     listProducts(){
+    //         listCamera.forEach(result => {
+    //             galleryHome(result);        
+    //         });
+    //     }
+    // }
+
+
+
+
+//connexion au back-end récupération des données et intégration dans un tableau
 const url = 'http://localhost:3000/api/cameras';
 let cardsList = document.querySelector('#cardsList');
 
@@ -69,23 +90,6 @@ function galleryHome(camera){
 
 async function main() {
     const listCamera = await getCamera();
-    // class Products{
-    //     constructor(id, name, price, description, lenses, imageUrl){
-    //     this.id             =       camera._id;
-    //     this.name           =       camera.name;
-    //     this.price          =       camera.price; 
-    //     this.description    =       camera.description;
-    //     this.lenses         =       camea.lenses;
-    //     this.imageUrl       =       camera.imageUrl;
-    //     } 
-
-    //     listProducts(){
-    //         listCamera.forEach(result => {
-    //             galleryHome(result);        
-    //         });
-    //     }
-    // }
-
     listCamera.forEach(result => {
         galleryHome(result);        
     });

@@ -9,6 +9,12 @@ a:hover{
     font-weight: bold;
 }
 
+.boxAlert{
+    position: absolute;
+    margin: 30px auto auto 30px;
+    z-index: 100;
+}
+
 header{
     border-radius: 0 0 20px 20px;
     box-shadow: 5px 5px 15px rgb(122, 122, 122) ;
@@ -23,6 +29,10 @@ header{
 .nav-item{
     min-width: 185px;
     
+}
+
+.hidden{
+    display: none;
 }
 
 

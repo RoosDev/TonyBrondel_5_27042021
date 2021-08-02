@@ -74,8 +74,7 @@ console.log(camera);
 
 
         // Vérification des prérequis
-        // La panier est il vide ?
-        // si non
+        // si le panier n'est pas vide
 
         if(typeof cart !== 'undefined' &&cart != null){
         // Vu que le produit comporte des produits, vérification de l'existance du produit en-cours d'ajout dans la panier
@@ -86,6 +85,11 @@ console.log(camera);
             }
 
                 let cartFind    =       cart.find(cameraInCart);
+
+                let boxMessage  =       document.querySelector('#basketMessage');
+
+
+
             // fin de la fonction de recherche. Pour l'executer appeler l'objet : cartFind
 
                 // console.log("affichage du résultat de la recherche");
@@ -137,6 +141,7 @@ console.log(camera);
                                 selectedLens:   lensAdd,
                 });
                 localStorage.setItem("cart", JSON.stringify(cart));
+                boxMessage.innerHTML    =   '<i class="fas fa-thumbs-up margin5"></i><p>c\'est dans le panier</p>'
             }
         }else{
 

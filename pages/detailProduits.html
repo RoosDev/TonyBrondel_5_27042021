@@ -18,6 +18,10 @@
 
 </head>
 <body>
+<div class="alert alert-success alert-dismissible fade show boxAlert" role="alert">
+    <strong><i class="fas fa-thumbs-up margin5"></i></strong> C'est dans le panier.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 <div class="container">
     <header class="row bg-warning bg-gradient">
         <div id="header_logo" class="col-3">
@@ -58,12 +62,11 @@
                                 <select id="lensSelected" class="form-control" required>
                                 </select>
                                 <label for="quantityOrdered"> Quantité : <em>(pour toute commande supérieure à 5 veuillez nous contacter directement)</em></label>
-                                <input type="number" id="quantityOrdered"step="1" min="1" max="5" placeholder="1" required>
-
+                                <input type="number" id="quantityOrdered"step="1" min="1" max="5" placeholder="0" required>
                                 <button type="submit" id="addToBasket" class="btn btn-success">Ajouter au panier</button>
                             </form>
                         </div>
-
+                    </div>
                 </div>
             </div>
         </div>
