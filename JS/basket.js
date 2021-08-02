@@ -5,9 +5,9 @@ function tableOfProduct(){
     if(typeof cart !== 'undefined' &&cart != null){
 
         for(var product in cart){
-            const cartP                                 =       cart[product]
+            const cartP                                     =       cart[product]
 
-            let productLine                            =       document.createElement('div');
+            let productLine                                 =       document.createElement('div');
                 productLine.classList.add("row") ;
                 productLine.classList.add("margeProduct") ;
                 productLine.classList.add("borderL") ;
@@ -34,7 +34,7 @@ function tableOfProduct(){
                     productLineImage.classList.add("centerFull") ;
                 let productLinePriceText                    =       document.createElement('p');
                     let LinePrice                           =       (Number(cartP.price)/100)*cartP.quantity
-                    productLinePriceText.innerHTML              =       LinePrice.toLocaleString("EUR", {style: "currency", currency: "EUR"});
+                    productLinePriceText.innerHTML          =       LinePrice.toLocaleString("EUR", {style: "currency", currency: "EUR"});
                     
                 
             TOPB__List.appendChild(productLine);
@@ -49,7 +49,7 @@ function tableOfProduct(){
 
         };
     }else{
-        let productLine               =       document.createElement('div');
+        let productLine        =       document.createElement('div');
             productLine.classList.add("row") ;
             productLine.classList.add("margeProduct") ;
             productLine.classList.add("borderL") ;
@@ -62,7 +62,7 @@ function tableOfProduct(){
 
         let formBuyer          =       document.querySelector('#TOPB_Form');
         formBuyer.classList.add("hidden");
-        let buttonValid             =       document.querySelector('#id__ValidBasket');
+        let buttonValid        =       document.querySelector('#id__ValidBasket');
         buttonValid.setAttribute("disabled", "");
     }
 
@@ -72,3 +72,17 @@ function tableOfProduct(){
 tableOfProduct();
 
 
+// intégration des montants dans la page
+function setupAmounts(){
+    amountOfCart();
+
+    let boxPriceWithTaxes        =     document.querySelector('.PriceTTCP');
+    let boxPriceofTaxes          =     document.querySelector('.PriceTVAP');
+    let boxPriceWithoutTaxes     =     document.querySelector('.PriceHTP');
+
+    boxPriceWithTaxes.textContent        =       amountWithTaxesConvert;
+    boxPriceofTaxes.textContent          =       amountofTaxesConvert;
+    boxPriceWithoutTaxes.textContent     =       amountWithoutTaxesConvert;
+
+}
+setupAmounts();

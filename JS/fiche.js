@@ -139,6 +139,7 @@ console.log(camera);
                 cart.splice(indexOfFind , 1);
                 
                 localStorage.setItem("cart", JSON.stringify(cart));
+                quantityProductInCart();
                 messageBasket();
             }else{
 
@@ -151,6 +152,7 @@ console.log(camera);
                                 selectedLens:   lensAdd,
                 });
                 localStorage.setItem("cart", JSON.stringify(cart));
+                quantityProductInCart();
                 messageBasket();
             }
         }else{
@@ -170,6 +172,7 @@ console.log(camera);
 
                 // console.log(cart);
             localStorage.setItem("cart", JSON.stringify(cart));
+            quantityProductInCart();
             messageBasket();            
         }
 
