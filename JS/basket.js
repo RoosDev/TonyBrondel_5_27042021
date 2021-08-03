@@ -1,11 +1,32 @@
+// Tableau d 'affichage des produits présents dans le panier 
+
 function tableOfProduct(){
 
-    let cart        =       JSON.parse(localStorage.getItem("cart"));
-    
+    let cart            =       JSON.parse(localStorage.getItem("cart"));
+
+
+    // demarrage de l'affichage du panier en fonction du fait qu'il soit vide ou qu'il contienne des produits.
+
     if(typeof cart !== 'undefined' &&cart != null){
 
         for(var product in cart){
-            const cartP                                     =       cart[product]
+            const cartP                     =       cart[product];
+            const indexOfProduct            =       cart.indexOf(cartP);
+
+                    // fonction de suppression d'un produit
+
+                    function deleteArticle(indexOfProduct) {
+                        let deleteButton            =       document.querySelector('#deleteProduct');
+                        deleteButton.addEventListener("click", function(e){
+                            console.log(indexOfProduct);
+                            e.preventDefault();
+                            cart.splice(indexOfProduct , 1);
+                        
+                            localStorage.setItem("cart", JSON.stringify(cart));
+                            location.reload();
+                        });
+                    }
+        
 
             let productLine                                 =       document.createElement('div');
                 productLine.classList.add("row") ;
@@ -26,8 +47,8 @@ function tableOfProduct(){
                     let productLineBlocText                 =       document.createElement('p');
                         productLineBlocText.innerHTML       =       'Quantité : ' + cartP.quantity;
                     let productLineBlocAction               =       document.createElement('p');
-                        productLineBlocAction.innerHTML     =       '<button id="deleteProduct" type="button" class="btn btn-warning">Supprimer l\'article</button>';
-
+                        productLineBlocAction.innerHTML     =       '<button id="deleteProduct" type="button" class="btn btn-light">Supprimer l\'article</button>';
+                        // deleteArticle(indexOfProduct);
 
                 let productLinePrice                        =       document.createElement('div');
                     productLinePrice.classList.add("col-2") ;
@@ -45,6 +66,9 @@ function tableOfProduct(){
                     productLineBloc.appendChild(productLineBlocAction);
                 productLine.appendChild(productLinePrice);
                     productLinePrice.appendChild(productLinePriceText);
+
+            deleteArticle(indexOfProduct);
+            
 
 
         };
@@ -86,3 +110,6 @@ function setupAmounts(){
 
 }
 setupAmounts();
+
+
+

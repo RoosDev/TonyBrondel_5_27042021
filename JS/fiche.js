@@ -56,7 +56,6 @@ function listeObjectifs(camera) {
 // fonction pour ajouter les éléments au panier via un localstorage
 
 function addBasket(camera){
-console.log(camera);
     let buyButton           =       document.querySelector('form');
 
     //fonction d'ajout au panier (local storage)
@@ -116,8 +115,6 @@ console.log(camera);
                 // console.log(quantityAdd);
                 // on récupère la quantité déja au panier que l'on ajoute à la quantité demandée  pour mettre à jour la quantité
                 quantityAdd = quantityAdd + Number(cartFind.quantity);
-                // console.log(quantityAdd);
-
                 // console.log("fin de la nouvelle valeur de la quantité");
                 // console.log("index de la recherche : ");
                 let indexOfFind = cart.indexOf(cartFind);
@@ -175,9 +172,8 @@ console.log(camera);
             quantityProductInCart();
             messageBasket();            
         }
-
     });
-
+    
 }
 
 async function main() {
