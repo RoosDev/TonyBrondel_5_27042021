@@ -1,24 +1,3 @@
-//récupération de l'id passé dans l'URL
-var parsedUrl           =       new URL(window.location.href);
-let monIDProduit        =       parsedUrl.searchParams.get("_id");
-
-//requete de récupération des éléments du produit qui nous interesse
-const url               =       'http://localhost:3000/api/cameras/' + monIDProduit;
-let cardsList           =       document.querySelector('#cardsList');
-
-async function getCamera() {
-    const result = await fetch(url)
-    .then(response => response.json() )
-    .then( jsonData => {
-        return jsonData;
-    })
-    .catch((error) => {
-        console.log(error);
-    });
-    return result;
-}
-
-
 // Mise en forme des données pour l'affichage
 function ficheProduit(camera){
     let blocCameraName                      =       document.querySelector('#cameraTitle');
@@ -39,7 +18,6 @@ function ficheProduit(camera){
 }
 
 //Fonction pour générer les options de la liste déroulante pour la commande
-let cameraLense;
 
 function listeObjectifs(camera) {
     let listLens            =       document.querySelector('#lensSelected');
@@ -86,7 +64,6 @@ function addBasket(camera){
 
 
                 // Préparation de la fonction pour afficher un message de confirmation d'ajout au panier durant 5 secondes
-                let boxMessage;
                 let contenerAlert   =       document.querySelector('#boxMessage');
                 let buttonAdd       =       document.querySelector('#addToBasket');
                 function messageBasket() {  
@@ -177,7 +154,9 @@ function addBasket(camera){
 }
 
 async function main() {
-    const cameraDetails                     =      await getCamera();
+    var parsedUrl           =       new URL(window.location.href);
+    let monIDProduit        =       parsedUrl.searchParams.get("_id");
+    const cameraDetails                     =      await getCamera(monIDProduit);
     ficheProduit(cameraDetails); 
     listeObjectifs(cameraDetails);
     addBasket(cameraDetails);

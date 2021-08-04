@@ -1,44 +1,8 @@
-// Mise en place des class
-
-    // class Products{
-    //     constructor(id, name, price, description, lenses, imageUrl){
-    //     this.id             =       camera._id;
-    //     this.name           =       camera.name;
-    //     this.price          =       camera.price; 
-    //     this.description    =       camera.description;
-    //     this.lenses         =       camera.lenses;
-    //     this.imageUrl       =       camera.imageUrl;
-    //     } 
-
-    //     listProducts(){
-    //         listCamera.forEach(result => {
-    //             galleryHome(result);        
-    //         });
-    //     }
-    // }
-
-
-
-
-//connexion au back-end récupération des données et intégration dans un tableau
-const url = 'http://localhost:3000/api/cameras';
-let cardsList = document.querySelector('#cardsList');
-
-async function getCamera() {
-    const result = await fetch(url)
-    .then(response => response.json() )
-    .then( jsonData => {
-        return jsonData;
-    })
-    .catch((error) => {
-        console.log(error);
-    });
-    return result;
-}
-
 // paramétrage de l'affichage sur la page d'accueil pour le rendu des cards de chaque produit.
 
 function galleryHome(camera){
+    let cardsList = document.querySelector('#cardsList');
+
     let cardBox                 = document.createElement('div');
     cardBox.classList.add("card") ;
     cardBox.classList.add("col-lg-3") ;
@@ -89,7 +53,7 @@ function galleryHome(camera){
 // fusion des fonctions pour intégration des données (une fois tout récupéré) dans la mise en page
 
 async function main() {
-    const listCamera = await getCamera();
+    const listCamera = await getCameras();
     listCamera.forEach(result => {
         galleryHome(result);        
     });
