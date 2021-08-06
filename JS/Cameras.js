@@ -1,6 +1,6 @@
 // Mise en place des class
 
-class Camera {
+class Cameras {
   constructor(id, name, price, description, imageUrl, lenses) {
     this.id = id;
     this.name = name;
