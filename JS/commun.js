@@ -22,8 +22,6 @@ quantityProductInCart()
 function amountOfCart() {
     let cart                    =       JSON.parse(localStorage.getItem("cart"));
     let amountWithTaxes         =       0;
-    let amountofTaxes           =       0;
-    let amountWithoutTaxes      =       0;
     let taxRate                 =       0.2;
 
     for(var product in cart){
@@ -41,3 +39,21 @@ function amountOfCart() {
 }
 
 
+function messagePanierVide(message){
+    let productLine = document.createElement("div");
+    productLine.classList.add("row");
+    productLine.classList.add("margeProduct");
+    productLine.classList.add("borderL");
+    let productLineEmpty = document.createElement("div");
+    productLineEmpty.classList.add("col");
+    productLineEmpty.classList.add("centerFull");
+    productLineEmpty.innerHTML = message;
+    TOPB__List.appendChild(productLine);
+    productLine.appendChild(productLineEmpty);
+
+    let formBuyer = document.querySelector("#TOPB_Form");
+    formBuyer.classList.add("hidden");
+    let buttonValid = document.querySelector("#id__ValidBasket");
+    buttonValid.setAttribute("disabled", "");
+
+}

@@ -1,35 +1,31 @@
-// Mise en forme du panier pour intégration à la commande (1 tableau qui liste les produits)
-const productsOrder = [];
-const detailCart = JSON.parse(localStorage.getItem("cart"));
-// récupération uniquement de l'id du produit qui est commandé
-for (var product in detailCart) {
-  productsOrder.push(product.id);
+function formatOrder() {
+  // Mise en forme du panier pour intégration à la commande (1 tableau qui liste les produits)
+  const productsOrder = [];
+  const detailCart = JSON.parse(localStorage.getItem("cart"));
+  // récupération uniquement de l'id du produit qui est commandé
+  for (var article in detailCart) {
+    const articleP = detailCart[article];
+    productsOrder.push(articleP.id);
+  }
+  // Mise en forme de la commande avec intégration de tous les éléments pour envoi
+   return {
+    contact: {
+      firstName: document.querySelector("#firstname").value,
+      lastName: document.querySelector("#lastname").value,
+      address: document.querySelector("#adress").value,
+      city: document.querySelector("#city").value,
+      email: document.querySelector("#email").value,
+    },
+    products: productsOrder,
+  };
+  // fonction d'envoi de la commande
 }
 
-console.log("Les produits commandés sont : " + productsOrder);
-
-// Mise en forme de la commande avec intégration de tous les éléments pour envoi
-const detailOrder = [];
-detailOrder.push({
-  contact: {
-    firstName: document.querySelector("#firstname").value,
-    lastName: document.querySelector("#lastname").value,
-    address: document.querySelector("#adress").value,
-    city: document.querySelector("#city").value,
-    email: document.querySelector("#email").value,
-  },
-  products: productsOrder,
-});
-
-console.log("le panier envoyé est : " + detailOrder);
-
-// fonction d'envoi de la commande
-
 const submitForm = document.querySelector("#identityForm");
-
 submitForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  sendOrder();
+  let myOrder = formatOrder();
+  sendOrder(myOrder);
 });
 
 //récupération de la commande
