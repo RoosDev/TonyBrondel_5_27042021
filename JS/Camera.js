@@ -11,8 +11,9 @@ class Camera {
   }
 
   get FormatedPrice() {
-    // return this.price / 100 + "," + (this.price % 100).toFixed(2) + ' €' ;
-    return (this.price / 100 ).toLocaleString("EUR", {style: "currency", currency: "EUR"});
+    return this.price / 100 + "," + (this.price % 100).toString().padStart(2, '0') + ' €' ; 
+    // => pas toFixed  on veut 2 décimales apres la virgule : padStart
+    // return (this.price / 100 ).toLocaleString("EUR", {style: "currency", currency: "EUR"});
   }
 
 }

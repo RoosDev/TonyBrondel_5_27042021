@@ -10,9 +10,12 @@ class Cameras {
     this.lenses = lenses;
   }
 
+
   get FormatedPrice() {
     // return this.price / 100 + "," + (this.price % 100).toFixed(2) + ' €' ;
-    return (this.price / 100 ).toLocaleString("EUR", {style: "currency", currency: "EUR"});
+    return (this.price / 100).toLocaleString("EUR", {
+      style: "currency",
+      currency: "EUR",
+    });
   }
-
 }

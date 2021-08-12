@@ -22,7 +22,7 @@ inputZipCode.addEventListener('input',()=> {
                 document.querySelector('#id__ValidBasket').setAttribute("disabled", "");
 
             }else(
-                divCity.innerHTML   =   ' '
+                selectCity.innerHTML   =   ' '
             )
         }
     
