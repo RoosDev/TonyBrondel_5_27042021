@@ -61,6 +61,7 @@ function tableOfProduct() {
       productLineBlocText.innerHTML = "Quantité : " + cartP.quantity;
 
       let productLineBlocAction = document.createElement("p");
+      productLineBlocAction.classList.add('productLineBlocAction');
       productLineBlocAction.innerHTML =
         '<button id="deleteProduct" type="button" class="btn btn-light">Supprimer l\'article</button>';
       // deleteArticle(indexOfProduct);
@@ -69,11 +70,14 @@ function tableOfProduct() {
       productLinePrice.classList.add("col-2");
       productLineImage.classList.add("centerFull");
       let productLinePriceText = document.createElement("p");
-      let LinePrice = (Number(cartP.price) / 100) * cartP.quantity;
-      productLinePriceText.innerHTML = LinePrice.toLocaleString("EUR", {
+      let LinePrice = ((Number(cartP.price) / 100) * cartP.quantity).toLocaleString("EUR", {
         style: "currency",
         currency: "EUR",
-      });
+      });;
+      productLinePriceText.innerHTML = LinePrice;
+        //Stockage du montant de la commande
+        sessionStorage.setItem('amountTTC', LinePrice);
+
 
       TOPB__List.appendChild(productLine);
       productLine.appendChild(productLineImage);

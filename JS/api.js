@@ -7,21 +7,20 @@ async function getCameras() {
     .then((jsonData) => {
       // jsonData.forEach(element => console.log(element));
       let cameraList = [];
-      jsonData.forEach(
-        (element) =>
-          cameraList.push(
-            new Cameras(
-                element._id,
-                element.name,
-                element.price,
-                element.description,
-                element.imageUrl,
-                element.lenses
-              )
+      jsonData.forEach((element) =>
+        cameraList.push(
+          new Cameras(
+            element._id,
+            element.name,
+            element.price,
+            element.description,
+            element.imageUrl,
+            element.lenses
           )
+        )
       );
       console.log(cameraList);
-      return cameraList
+      return cameraList;
     })
     .catch((error) => {
       console.log(error);
@@ -69,28 +68,16 @@ async function sendOrder(detailOrder) {
       }
     })
     .then((jsonData) => {
+      //nettoyage du localstorage
       localStorage.clear();
+      //stockage des éléments de commande en session storage pour l'affichage
       console.log(jsonData);
-      localStorage.setItem("contact", jsonData.contact);
-      localStorage.setItem("products", jsonData.products);
-      localStorage.setItem("orderId", jsonData.orderId);
-      let productLine = document.createElement("div");
-      productLine.classList.add("row");
-      productLine.classList.add("margeProduct");
-      productLine.classList.add("borderL");
-      let productLineEmpty = document.createElement("div");
-      productLineEmpty.classList.add("col");
-      productLineEmpty.classList.add("centerFull");
-      productLineEmpty.innerHTML = '<h2> Cher ' + jsonData.contact.firstName + ' ' + jsonData.contact.lastName + ', nous vous confirmons que votre commande N°' + jsonData.orderId + ' a bien été prise en compte.</h2>';
-      TOPB__List.appendChild(productLine);
-      productLine.appendChild(productLineEmpty);
-  
-      let formBuyer = document.querySelector("#TOPB_Form");
-      formBuyer.classList.add("hidden");
-      let buttonValid = document.querySelector("#id__ValidBasket");
-      buttonValid.setAttribute("disabled", "");
-  
-
+      sessionStorage.setItem("contact", jsonData.contact);
+      sessionStorage.setItem("products", jsonData.products);
+      sessionStorage.setItem("orderId", jsonData.orderId);
+      // affichage de la réponse de la commande
+      responseOrder(jsonData);
+      
       return jsonData;
     })
     .catch((error) => {
