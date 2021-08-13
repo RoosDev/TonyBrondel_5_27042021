@@ -102,6 +102,8 @@ function tableOfProduct() {
     TOPB__List.appendChild(productLine);
     productLine.appendChild(productLineEmpty);
 
+    let EmptyBasket = document.querySelector("#EmptyBasket");
+    EmptyBasket.classList.add("hidden");
     let formBuyer = document.querySelector("#TOPB_Form");
     formBuyer.classList.add("hidden");
     let buttonValid = document.querySelector("#id__ValidBasket");
@@ -124,3 +126,9 @@ function setupAmounts() {
   boxPriceWithoutTaxes.textContent = amountWithoutTaxesConvert;
 }
 setupAmounts();
+
+let emptyCartButton = document.querySelector('#emptyBasketButton')
+emptyCartButton.addEventListener('click', () =>{
+    localStorage.removeItem('cart');
+    document.location.reload();
+})    
