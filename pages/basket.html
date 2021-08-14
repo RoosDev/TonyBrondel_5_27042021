@@ -36,7 +36,7 @@
     <main>
         <div class="jumbotron jumbotron-fluid">
             
-            <form href="" id="identityForm">
+            <form id="identityForm">
    
                 <div id="tableOfProductsBought" class="row">
                     <div id="TOPB__LeftBlock" class="col-lg-7">
@@ -52,56 +52,57 @@
                     </div>
                     <div id="TOPB__RightBlock" class="col-lg-5">
 
-                    <div id="TOPB_Form" class="row">
-                        <div id="formOrdererTitle" class="row">
-                            <h2 class="display-3">Vos informations</h2>
-                            <hr class="my-2">
-                        </div>
-                        <div id="formOrderer">
-                            <p><em>* champs obligatoires</em></p>
-                                <div class="mb-3">
-                                    <label for="lastname" class="form-label">Nom* :</label>
-                                    <input type="text" id="lastname" class="form-control" placeholder="Pranhune" size="30" required>
-                                    <div id='verifLastName' class="hidden">yop</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="firstname" class="form-label">Prénom* :</label>
-                                    <input type="text" id="firstname" class="form-control" placeholder="Jean" size="30" required>
-                                    <div id='verifFirstName' class="hidden">yop</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="adress" class="form-label">Adresse* :</label>
-                                    <input type="text" id="adress" class="form-control" placeholder="12 rue mabble" size="50" required>
-                                    <div id='verifAdress' class="hidden">yop</div>
-                                </div>
-                                <div class="row g-3 align-items-center">
-                                    <div class="col-4">
-                                        <label for="zipCode" class="form-label">Code postal* :</label>
-                                        <input type="number" id="zipCode" class="form-control" placeholder="75000" size="8" min="0" required>
+                        <div id="TOPB_Form" class="row">
+                            <div id="formOrdererTitle" class="row">
+                                <h2 class="display-3">Vos informations</h2>
+                                <hr class="my-2">
+                            </div>
+                            <div id="formOrderer">
+                                <p><em>* champs obligatoires</em></p>
+                                    <div class="mb-3">
+                                        <label for="lastname" class="form-label">Nom* :</label>
+                                        <input type="text" id="lastname" class="form-control" placeholder="Pranhune" required>
+                                        <div id='verifLastName' class="hidden">yop</div>
                                     </div>
-                                    <div class="col-8">
-                                        <label for="city" class="form-label">Ville* :</label>
-                                        <select name="city" id="city" class="form-control" required> </select>
+                                    <div class="mb-3">
+                                        <label for="firstname" class="form-label">Prénom* :</label>
+                                        <input type="text" id="firstname" class="form-control" placeholder="Jean" required>
+                                        <div id='verifFirstName' class="hidden">yop</div>
                                     </div>
-                                    <div id='verifZipCode' class="row hidden">yop</div>
+                                    <div class="mb-3">
+                                        <label for="adress" class="form-label">Adresse* :</label>
+                                        <input type="text" id="adress" class="form-control" placeholder="12 rue mabble" required>
+                                        <div id='verifAdress' class="hidden">yop</div>
+                                    </div>
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-4">
+                                            <label for="zipCode" class="form-label">Code postal* :</label>
+                                            <input type="number" id="zipCode" class="form-control" placeholder="75000" min="0" required>
+                                        </div>
+                                        <div class="col-8">
+                                            <label for="city" class="form-label">Ville* :</label>
+                                            <select name="city" id="city" class="form-control" required> </select>
+                                        </div>
+                                        <div id='verifZipCode' class="row hidden">yop</div>
 
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">email* :</label>
-                                    <input type="email" id="email" class="form-control" placeholder="jeanpranhune@gmail.com" size="50" required>
-                                    <div id='verifEmail' class="hidden">yop</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="phone" class="form-label">Téléphone* :</label>
-                                    <input type="tel" id="phone" class="form-control" placeholder="06 12 34 56 78 " size="50" required>
-                                    <div id='verifTel' class="hidden">yop</div>
-                                </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">email* :</label>
+                                        <input type="email" id="email" class="form-control" placeholder="jeanpranhune@gmail.com" required>
+                                        <div id='verifEmail' class="hidden">yop</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Téléphone* :</label>
+                                        <input type="tel" id="phone" class="form-control" placeholder="06 12 34 56 78 " required>
+                                        <div id='verifTel' class="hidden">yop</div>
+                                    </div>
+                            </div>
+                            <hr class="my-2">
+                            <div id="orderResult">
+                                <!-- Ici s'affiche le résultat de la commande-->
+                            </div>
                         </div>
-                        <hr class="my-2">
-                        <div id="orderResult">
-                            <!-- Ici s'affiche le résultat de la commande-->
-                        </div>
-                    </div>
+                    </div>    
                 </div>
                 <div id="EmptyBasket" class="row ">
                     <button type="button" id="emptyBasketButton" class="btn btn-light">Vider mon panier</button>
@@ -110,10 +111,10 @@
                 <div id="TOPB__ColAmount" class="row">
                     <div id="TOPB__boxAmounts" class="row">
                         <div id="TOPB__CodePromo" class="col-lg-6 ">
-                                <label class="h5" for="CodePromoInside" class="form-label">Votre code promo :</label>
+                                <label class="h5 form-label" for="CodePromoInside" >Votre code promo :</label>
                                 <div class="row g-3 align-items-center">
                                     <div class="col-auto">
-                                        <input type="text" id="CodePromoInside"  class="form-control"size="20" placeholder="ex: MERCIKODAK">
+                                        <input type="text" id="CodePromoInside"  class="form-control" size="20" placeholder="ex: MERCIKODAK">
                                     </div> 
                                     <div class="col-auto">
                                         <button type="button" class="btn btn-light">valider</button>
