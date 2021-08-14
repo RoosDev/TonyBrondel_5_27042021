@@ -1,194 +1,278 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
-    <link rel="stylesheet" href="../css/styleCommun.css" />  
-    <link rel="stylesheet" href="../css/styleBasket.css" />  
-
-
+    <link rel="stylesheet" href="../css/styleCommun.css" />
+    <link rel="stylesheet" href="../css/styleBasket.css" />
 
     <title>Orinoco - Tout se qu'il vous faut</title>
-    
-    <script src="https://kit.fontawesome.com/b384501697.js" crossorigin="anonymous" ></script>
 
-</head>
-<body>
-<div class="container">
-    <header class="row bg-warning bg-gradient">
+    <script
+      src="https://kit.fontawesome.com/b384501697.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="row bg-warning bg-gradient">
         <div id="header_logo" class="col-3">
-            <a href="../index.html" class="navbar-brand"><img src="/img/logo_global.png" alt="Logo Orinoco"></a>
+          <a href="../index.html" class="navbar-brand"
+            ><img src="/img/logo_global.png" alt="Logo Orinoco"
+          /></a>
         </div>
         <nav class="navbar navbar-expand col-9">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="../index.html" class="nav-link active">Les appareils photo</a></li>
-                <li class="nav-item"><a href="" class="nav-link disabled">Les oursons tout mignon</a></li>
-                <li class="nav-item"><a href="" class="nav-link disabled">Les meubles</a></li>
-                <li class="nav-item"><a href="basket.html" id="navBasket" class="nav-link" ><i class="fas fa-shopping-cart margin5"></i>0 produits</a></li>
-                <li class="nav-item"><a href="" class="nav-link disabled"><i class="fas fa-user margin5"></i>Se connecter</a></li>
-            </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link active"
+                >Les appareils photo</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link disabled">Les oursons tout mignon</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link disabled">Les meubles</a>
+            </li>
+            <li class="nav-item">
+              <a href="basket.html" id="navBasket" class="nav-link"
+                ><i class="fas fa-shopping-cart margin5"></i>0 produits</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link disabled"
+                ><i class="fas fa-user margin5"></i>Se connecter</a
+              >
+            </li>
+          </ul>
         </nav>
-    </header>
-    <main>
+      </header>
+      <main>
         <div class="jumbotron jumbotron-fluid">
-            
-            <form id="identityForm">
-   
-                <div id="tableOfProductsBought" class="row">
-                    <div id="TOPB__LeftBlock" class="col-lg-7">
-                        <div class="row">
-                            <h2 class="titleCart display-3">Votre panier</h2>
-                            <hr class="my-2">
-                        </div>
-                        <div id="TOPB__List" class="row">
-
-                            <!-- Ici JS intègre le panier stocké en LocalStorage -->
-
-                        </div>
-                    </div>
-                    <div id="TOPB__RightBlock" class="col-lg-5">
-
-                        <div id="TOPB_Form" class="row">
-                            <div id="formOrdererTitle" class="row">
-                                <h2 class="display-3">Vos informations</h2>
-                                <hr class="my-2">
-                            </div>
-                            <div id="formOrderer">
-                                <p><em>* champs obligatoires</em></p>
-                                    <div class="mb-3">
-                                        <label for="lastname" class="form-label">Nom* :</label>
-                                        <input type="text" id="lastname" class="form-control" placeholder="Pranhune" required>
-                                        <div id='verifLastName' class="hidden">yop</div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="firstname" class="form-label">Prénom* :</label>
-                                        <input type="text" id="firstname" class="form-control" placeholder="Jean" required>
-                                        <div id='verifFirstName' class="hidden">yop</div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="adress" class="form-label">Adresse* :</label>
-                                        <input type="text" id="adress" class="form-control" placeholder="12 rue mabble" required>
-                                        <div id='verifAdress' class="hidden">yop</div>
-                                    </div>
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-4">
-                                            <label for="zipCode" class="form-label">Code postal* :</label>
-                                            <input type="number" id="zipCode" class="form-control" placeholder="75000" min="0" required>
-                                        </div>
-                                        <div class="col-8">
-                                            <label for="city" class="form-label">Ville* :</label>
-                                            <select name="city" id="city" class="form-control" required> </select>
-                                        </div>
-                                        <div id='verifZipCode' class="row hidden">yop</div>
-
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">email* :</label>
-                                        <input type="email" id="email" class="form-control" placeholder="jeanpranhune@gmail.com" required>
-                                        <div id='verifEmail' class="hidden">yop</div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="phone" class="form-label">Téléphone* :</label>
-                                        <input type="tel" id="phone" class="form-control" placeholder="06 12 34 56 78 " required>
-                                        <div id='verifTel' class="hidden">yop</div>
-                                    </div>
-                            </div>
-                            <hr class="my-2">
-                            <div id="orderResult">
-                                <!-- Ici s'affiche le résultat de la commande-->
-                            </div>
-                        </div>
-                    </div>    
+          <form id="identityForm">
+            <div id="tableOfProductsBought" class="row">
+              <div id="TOPB__LeftBlock" class="col-lg-7">
+                <div class="row">
+                  <h2 class="titleCart display-3">Votre panier</h2>
+                  <hr class="my-2" />
                 </div>
-                <div id="EmptyBasket" class="row ">
-                    <button type="button" id="emptyBasketButton" class="btn btn-light">Vider mon panier</button>
+                <div id="TOPB__List" class="row">
+                  <!-- Ici JS intègre le panier stocké en LocalStorage -->
                 </div>
-
-                <div id="TOPB__ColAmount" class="row">
-                    <div id="TOPB__boxAmounts" class="row">
-                        <div id="TOPB__CodePromo" class="col-lg-6 ">
-                                <label class="h5 form-label" for="CodePromoInside" >Votre code promo :</label>
-                                <div class="row g-3 align-items-center">
-                                    <div class="col-auto">
-                                        <input type="text" id="CodePromoInside"  class="form-control" size="20" placeholder="ex: MERCIKODAK">
-                                    </div> 
-                                    <div class="col-auto">
-                                        <button type="button" class="btn btn-light">valider</button>
-                                    </div> 
-                                </div>
-                        </div>
-                        <div id="TOPB__TotalAmounts" class="col-lg-6">
-                            <h3>Total du panier</h3>
-                            <div class="row">
-                                <div class="col-6 labelHT">
-                                    <p>Montant HT :</p>
-                                </div>
-                                <div class="col-6 PriceHT">
-                                    <p class="PriceHTP"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 labelTVA">
-                                    <p>Montant TVA :</p>
-                                </div>
-                                <div class="col-6 PriceTVA">
-                                    <p class="PriceTVAP"></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 labelTTC">
-                                    <p class="h4">Montant TTC :</p>
-                                </div>
-                                <div class="col-6 PriceTTC">
-                                    <p class="h4 PriceTTCP"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                    
-                    <div id="TOPB__ValidBasket" class="row ">
-                        <button type="submit" id="id__ValidBasket" class="btn btn-warning">Valider mon panier</button>
+              </div>
+              <div id="TOPB__RightBlock" class="col-lg-5">
+                <div id="TOPB_Form" class="row">
+                  <div id="formOrdererTitle" class="row">
+                    <h2 class="display-3">Vos informations</h2>
+                    <hr class="my-2" />
+                  </div>
+                  <div id="formOrderer">
+                    <p><em>* champs obligatoires</em></p>
+                    <div class="mb-3">
+                      <label for="lastname" class="form-label">Nom* :</label>
+                      <input
+                        type="text"
+                        id="lastname"
+                        class="form-control"
+                        placeholder="Pranhune"
+                        required
+                      />
+                      <div id="verifLastName" class="hidden">yop</div>
                     </div>
-                </div>       
-            </form>
+                    <div class="mb-3">
+                      <label for="firstname" class="form-label"
+                        >Prénom* :</label
+                      >
+                      <input
+                        type="text"
+                        id="firstname"
+                        class="form-control"
+                        placeholder="Jean"
+                        required
+                      />
+                      <div id="verifFirstName" class="hidden">yop</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="adress" class="form-label">Adresse* :</label>
+                      <input
+                        type="text"
+                        id="adress"
+                        class="form-control"
+                        placeholder="12 rue mabble"
+                        required
+                      />
+                      <div id="verifAdress" class="hidden">yop</div>
+                    </div>
+                    <div class="row g-3 align-items-center">
+                      <div class="col-4">
+                        <label for="zipCode" class="form-label"
+                          >Code postal* :</label
+                        >
+                        <input
+                          type="number"
+                          id="zipCode"
+                          class="form-control"
+                          placeholder="75000"
+                          min="0"
+                          required
+                        />
+                      </div>
+                      <div class="col-8">
+                        <label for="city" class="form-label">Ville* :</label>
+                        <select
+                          name="city"
+                          id="city"
+                          class="form-control"
+                          required
+                        ></select>
+                      </div>
+                      <div id="verifZipCode" class="row hidden">yop</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">email* :</label>
+                      <input
+                        type="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="jeanpranhune@gmail.com"
+                        required
+                      />
+                      <div id="verifEmail" class="hidden">yop</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="phone" class="form-label">Téléphone* :</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        class="form-control"
+                        placeholder="06 12 34 56 78 "
+                        required
+                      />
+                      <div id="verifTel" class="hidden">yop</div>
+                    </div>
+                  </div>
+                  <hr class="my-2" />
+                  <div id="orderResult">
+                    <!-- Ici s'affiche le résultat de la commande-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="EmptyBasket" class="row">
+              <button
+                type="button"
+                id="emptyBasketButton"
+                class="btn btn-light"
+              >
+                Vider mon panier
+              </button>
+            </div>
+
+            <div id="TOPB__ColAmount" class="row">
+              <div id="TOPB__boxAmounts" class="row">
+                <div id="TOPB__CodePromo" class="col-lg-6">
+                  <label class="h5 form-label" for="CodePromoInside"
+                    >Votre code promo :</label
+                  >
+                  <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <input
+                        type="text"
+                        id="CodePromoInside"
+                        class="form-control"
+                        size="20"
+                        placeholder="ex: MERCIKODAK"
+                      />
+                    </div>
+                    <div class="col-auto">
+                      <button type="button" class="btn btn-light">
+                        valider
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div id="TOPB__TotalAmounts" class="col-lg-6">
+                  <h3>Total du panier</h3>
+                  <div class="row">
+                    <div class="col-6 labelHT">
+                      <p>Montant HT :</p>
+                    </div>
+                    <div class="col-6 PriceHT">
+                      <p class="PriceHTP"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 labelTVA">
+                      <p>Montant TVA :</p>
+                    </div>
+                    <div class="col-6 PriceTVA">
+                      <p class="PriceTVAP"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 labelTTC">
+                      <p class="h4">Montant TTC :</p>
+                    </div>
+                    <div class="col-6 PriceTTC">
+                      <p class="h4 PriceTTCP"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="TOPB__ValidBasket" class="row">
+                <button
+                  type="submit"
+                  id="id__ValidBasket"
+                  class="btn btn-warning"
+                >
+                  Valider mon panier
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-    </main>
-</div>
-<hr class="my-2">
-<footer class="list-group-item-warning row">
-    <div id="footer1st" class="col-2">
-        <a href="#" class="" >Promotions</a>
+      </main>
+    </div>
+    <hr class="my-2" />
+    <footer class="list-group-item-warning row">
+      <div id="footer1st" class="col-2">
+        <a href="#" class="">Promotions</a>
         <a href="#" class="">Qui sommes nous ?</a>
         <a href="#" class="">La garantie</a>
         <a href="#" class="">La livraison</a>
-    </div>
-    <div id="footer2nd" class="col-3">
+      </div>
+      <div id="footer2nd" class="col-3">
         <a href="#" class="">Les CGV </a>
         <a href="#" class="">Mentions légales</a>
         <a href="#" class="">Politique de confidentialité</a>
         <a href="#" class="">Nos engagements</a>
-    </div>
-    <div id="footer3rd" class="col-2">
+      </div>
+      <div id="footer3rd" class="col-2">
         <p class="">Orinoco</p>
         <p class="">237, Rue du flash<br />38350 kodakcity</p>
-        <p class="">tél. : 07 51 20 36 95 <br /> <a href="mailto:dev@difiworld.com"> dev@difiworld.com</a> </p>
-    </div>
-</footer>
+        <p class="">
+          tél. : 07 51 20 36 95 <br />
+          <a href="mailto:dev@difiworld.com"> dev@difiworld.com</a>
+        </p>
+      </div>
+    </footer>
 
-
-
-<script src="../JS/api.js"></script>
-<!-- <script src="../JS/Cart.js"></script> -->
-<script src="../JS/commun.js"></script>
-<script src="../JS/basket.js"></script>
-<script src="../JS/regexOthers.js"></script>
-<script src="../JS/api_Gouv.js"></script>
-<script src="../JS/verifValidZipCity.js"></script>
-<script src="../JS/order.js"></script>
-
-
-</body>
+    <script src="../JS/api.js"></script>
+    <!-- <script src="../JS/Cart.js"></script> -->
+    <script src="../JS/commun.js"></script>
+    <script src="../JS/basket.js"></script>
+    <script src="../JS/regexOthers.js"></script>
+    <script src="../JS/api_Gouv.js"></script>
+    <script src="../JS/verifValidZipCity.js"></script>
+    <script src="../JS/order.js"></script>
+  </body>
 </html>
