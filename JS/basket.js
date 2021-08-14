@@ -2,9 +2,18 @@
 
 function tableOfProduct() {
   let cart = JSON.parse(localStorage.getItem("cart"));
-  // let cart = Cart.getItems;
-  // console.log('Affichage du panier nouvelle version' + Cart.getItems);
-  // console.log("le cart via Cart items : " + cart);
+
+  // fonction de suppression d'un produit
+  function deleteOneProduct(indexOfProduct) {
+    let deleteButton = document.querySelector("#deleteProduct");
+    deleteButton.addEventListener("click", function (e) {
+      console.log(indexOfProduct);
+      e.preventDefault();
+      cart.splice(indexOfProduct, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      document.location.reload();
+    });
+  }
 
   // demarrage de l'affichage du panier en fonction du fait qu'il soit vide ou qu'il contienne des produits.
 
@@ -13,20 +22,8 @@ function tableOfProduct() {
     for (var product in cart) {
       const cartP = cart[product];
       const indexOfProduct = cart.indexOf(cartP);
-
-      // fonction de suppression d'un produit
-
-      function deleteArticle(indexOfProduct) {
-        let deleteButton = document.querySelector("#deleteProduct");
-        deleteButton.addEventListener("click", function (e) {
-          console.log(indexOfProduct);
-          e.preventDefault();
-          cart.splice(indexOfProduct, 1);
-
-          localStorage.setItem("cart", JSON.stringify(cart));
-          location.reload();
-        });
-      }
+      // console.log('Affichage du panier nouvelle version : ' + product.getItems);
+      // console.log("le cart montant : " + product.FormatedPrice);
 
       let productLine = document.createElement("div");
       productLine.classList.add("row");
@@ -61,23 +58,24 @@ function tableOfProduct() {
       productLineBlocText.innerHTML = "Quantité : " + cartP.quantity;
 
       let productLineBlocAction = document.createElement("p");
-      productLineBlocAction.classList.add('productLineBlocAction');
+      productLineBlocAction.classList.add("productLineBlocAction");
       productLineBlocAction.innerHTML =
         '<button id="deleteProduct" type="button" class="btn btn-light">Supprimer l\'article</button>';
-      // deleteArticle(indexOfProduct);
 
       let productLinePrice = document.createElement("div");
       productLinePrice.classList.add("col-2");
       productLineImage.classList.add("centerFull");
       let productLinePriceText = document.createElement("p");
-      let LinePrice = ((Number(cartP.price) / 100) * cartP.quantity).toLocaleString("EUR", {
+      let LinePrice = (
+        (Number(cartP.price) / 100) *
+        cartP.quantity
+      ).toLocaleString("EUR", {
         style: "currency",
         currency: "EUR",
-      });;
+      });
       productLinePriceText.innerHTML = LinePrice;
-        //Stockage du montant de la commande
-        sessionStorage.setItem('amountTTC', LinePrice);
-
+      //Stockage du montant de la commande
+      sessionStorage.setItem("amountTTC", LinePrice);
 
       TOPB__List.appendChild(productLine);
       productLine.appendChild(productLineImage);
@@ -87,8 +85,7 @@ function tableOfProduct() {
       productLineBloc.appendChild(productLineBlocAction);
       productLine.appendChild(productLinePrice);
       productLinePrice.appendChild(productLinePriceText);
-
-      deleteArticle(indexOfProduct);
+      deleteOneProduct();
     }
   } else {
     let productLine = document.createElement("div");
@@ -111,8 +108,6 @@ function tableOfProduct() {
   }
 }
 
-tableOfProduct();
-
 // intégration des montants dans la page
 function setupAmounts() {
   amountOfCart();
@@ -125,10 +120,18 @@ function setupAmounts() {
   boxPriceofTaxes.textContent = amountofTaxesConvert;
   boxPriceWithoutTaxes.textContent = amountWithoutTaxesConvert;
 }
-setupAmounts();
 
-let emptyCartButton = document.querySelector('#emptyBasketButton')
-emptyCartButton.addEventListener('click', () =>{
-    localStorage.removeItem('cart');
-    document.location.reload();
-})    
+// action pour vider le panier au clic
+
+let emptyCartButton = document.querySelector("#emptyBasketButton");
+emptyCartButton.addEventListener("click", () => {
+  localStorage.removeItem("cart");
+  document.location.reload();
+});
+
+function main() {
+  tableOfProduct();
+  setupAmounts();
+}
+
+main();

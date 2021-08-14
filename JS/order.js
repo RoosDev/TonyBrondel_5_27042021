@@ -40,12 +40,12 @@ function responseOrder(responseOrder) {
   divbuttonDeleteProduct.classList.add("hidden");
   let formOrderer = document.querySelector("#formOrderer");
   formOrderer.classList.add("hidden");
-  let titleCart = document.querySelector('.titleCart');
-  titleCart.textContent = 'Votre commande';
-  let TOPB__CodePromo = document.querySelector('#TOPB__CodePromo');
+  let titleCart = document.querySelector(".titleCart");
+  titleCart.textContent = "Votre commande";
+  let TOPB__CodePromo = document.querySelector("#TOPB__CodePromo");
   TOPB__CodePromo.classList.add("hidden");
-  let TOPB__TotalAmounts = document.querySelector('#TOPB__TotalAmounts');
-  TOPB__TotalAmounts.classList.remove('col-lg-6');
+  let TOPB__TotalAmounts = document.querySelector("#TOPB__TotalAmounts");
+  TOPB__TotalAmounts.classList.remove("col-lg-6");
 
   // création du bloc d'affichage des informations de la commande
   let orderLine = document.createElement("div");

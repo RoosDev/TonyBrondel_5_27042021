@@ -57,16 +57,10 @@ function galleryHome(camera) {
 // fusion des fonctions pour intégration des données (une fois tout récupéré) dans la mise en page
 
 async function main() {
-    const listCamera = await getCameras();
-    listCamera.forEach((element) => {
-      galleryHome(element)
-    });
-
-//   await getCameras();
-//   for (const camera of Cameras) {
-//     galleryHome(camera);
-//     console.log(Cameras);
-//   }
+  const listCamera = await getCameras();
+  listCamera.forEach((element) => {
+    galleryHome(element);
+  });
 }
 
 main();

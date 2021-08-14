@@ -10,9 +10,8 @@ class Cameras {
     this.lenses = lenses;
   }
 
-
   get FormatedPrice() {
-    // return this.price / 100 + "," + (this.price % 100).toFixed(2) + ' €' ;
+    // 2nde façon de convertir le montant pour un affichage clair
     return (this.price / 100).toLocaleString("EUR", {
       style: "currency",
       currency: "EUR",

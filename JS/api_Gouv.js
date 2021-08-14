@@ -1,5 +1,5 @@
 // selectCity
-let valueOption = '';
+let valueOption = "";
 
 inputZipCode.addEventListener("input", () => {
   const urlGeoApi =
@@ -16,7 +16,6 @@ inputZipCode.addEventListener("input", () => {
           selectCity.innerHTML +=
             '<option value="' + element.nom + '">' + element.nom + "</option>";
           valueOption = document.querySelector("#city").value;
-          console.log(valueOption);
           document
             .querySelector("#id__ValidBasket")
             .removeAttribute("disabled");
@@ -26,9 +25,8 @@ inputZipCode.addEventListener("input", () => {
           selectCity.innerHTML = "";
           selectCity.innerHTML +=
             '<option value="erreur">Aucune commune avec ce code postal.</option>';
-            valueOption = document.querySelector("#city").value;
-            console.log(valueOption);
-            document
+          valueOption = document.querySelector("#city").value;
+          document
             .querySelector("#id__ValidBasket")
             .setAttribute("disabled", "");
         } else selectCity.innerHTML = " ";
@@ -38,4 +36,3 @@ inputZipCode.addEventListener("input", () => {
       console.log(error);
     });
 });
-

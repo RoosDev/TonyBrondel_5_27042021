@@ -71,7 +71,6 @@ async function sendOrder(detailOrder) {
       //nettoyage du localstorage
       localStorage.clear();
       //stockage des éléments de commande en session storage pour l'affichage
-      console.log(jsonData);
       sessionStorage.setItem("contact", jsonData.contact);
       sessionStorage.setItem("products", jsonData.products);
       sessionStorage.setItem("orderId", jsonData.orderId);
