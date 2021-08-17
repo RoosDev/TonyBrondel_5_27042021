@@ -10,12 +10,18 @@ const regexEmail = new RegExp(
 );
 
 // Récupération des champs de saisie
+let inputNom = document.querySelector("#lastname");
+let inputPrenom = document.querySelector("#firstname");
+let inputAdresse = document.querySelector("#adress");
 let inputZipCode = document.querySelector("#zipCode");
 let selectCity = document.querySelector("#city");
 let inputTel = document.querySelector("#phone");
 let inputEmail = document.querySelector("#email");
 
 // Récupération des champs de message de validation
+let divNom = document.querySelector("#verifLastName");
+let divPrenom = document.querySelector("#verifFirstName");
+let divAdresse = document.querySelector("#verifAdress");
 let divZipCode = document.querySelector("#verifZipCode");
 let divTel = document.querySelector("#verifTel");
 let divEmail = document.querySelector("#verifEmail");
@@ -23,6 +29,66 @@ let divEmail = document.querySelector("#verifEmail");
 let buttonValid = document.querySelector("#id__ValidBasket");
 
 // les champs villes et code postal sont vérifiés dans le fichier api_Gouv.js en meme temps que leur détermination
+
+// Champs nom vide
+inputNom.addEventListener("input", () => {
+  if (inputNom.value == "" || inputNom.value == undefined) {
+    divNom.classList.remove("hidden");
+    divNom.classList.remove("text-success");
+    divNom.classList.add("text-danger");
+    divNom.classList.add("font-weight-bold");
+    divNom.innerHTML = '<p><i class="fas fa-times"></i> Le nom est vide</p>';
+    buttonValid.setAttribute("disabled", "");
+  } else {
+    divNom.classList.remove("hidden");
+    divNom.classList.remove("text-danger");
+    divNom.classList.add("text-success");
+    divNom.classList.add("font-weight-bold");
+    divNom.innerHTML = '<em><i class="fas fa-check"></i> Nom ajouté</em>';
+    buttonValid.removeAttribute("disabled");
+  }
+});
+
+// Champs prénom vide
+inputPrenom.addEventListener("input", () => {
+  if (inputPrenom.value == "" || inputPrenom.value == undefined) {
+    divPrenom.classList.remove("hidden");
+    divPrenom.classList.remove("text-success");
+    divPrenom.classList.add("text-danger");
+    divPrenom.classList.add("font-weight-bold");
+    divPrenom.innerHTML =
+      '<p><i class="fas fa-times"></i> Le prénom est vide</p>';
+    buttonValid.setAttribute("disabled", "");
+  } else {
+    divPrenom.classList.remove("hidden");
+    divPrenom.classList.remove("text-danger");
+    divPrenom.classList.add("text-success");
+    divPrenom.classList.add("font-weight-bold");
+    divPrenom.innerHTML = '<em><i class="fas fa-check"></i> Prénom ajouté</em>';
+    buttonValid.removeAttribute("disabled");
+  }
+});
+
+// Champs adresse vide
+inputAdresse.addEventListener("input", () => {
+  if (inputAdresse.value == "" || inputAdresse.value == undefined) {
+    divAdresse.classList.remove("hidden");
+    divAdresse.classList.remove("text-success");
+    divAdresse.classList.add("text-danger");
+    divAdresse.classList.add("font-weight-bold");
+    divAdresse.innerHTML =
+      '<p><i class="fas fa-times"></i> L\'adresse est vide</p>';
+    buttonValid.setAttribute("disabled", "");
+  } else {
+    divAdresse.classList.remove("hidden");
+    divAdresse.classList.remove("text-danger");
+    divAdresse.classList.add("text-success");
+    divAdresse.classList.add("font-weight-bold");
+    divAdresse.innerHTML =
+      '<em><i class="fas fa-check"></i> Adresse ajoutée</em>';
+    buttonValid.removeAttribute("disabled");
+  }
+});
 
 // champs téléphone
 inputTel.addEventListener("input", () => {
@@ -44,6 +110,7 @@ inputTel.addEventListener("input", () => {
     buttonValid.setAttribute("disabled", "");
   }
 });
+
 // champs email
 inputEmail.addEventListener("input", () => {
   if (inputEmail.value.match(regexEmail)) {

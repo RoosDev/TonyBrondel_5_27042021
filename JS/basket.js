@@ -22,8 +22,6 @@ function tableOfProduct() {
     for (var product in cart) {
       const cartP = cart[product];
       const indexOfProduct = cart.indexOf(cartP);
-      // console.log('Affichage du panier nouvelle version : ' + product.getItems);
-      // console.log("le cart montant : " + product.FormatedPrice);
 
       let productLine = document.createElement("div");
       productLine.classList.add("row");

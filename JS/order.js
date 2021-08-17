@@ -19,8 +19,8 @@ function formatOrder() {
     },
     products: productsOrder,
   };
-  // fonction d'envoi de la commande
 }
+  // fonction d'envoi de la commande
 
 const submitForm = document.querySelector("#identityForm");
 submitForm.addEventListener("submit", function (e) {
@@ -44,6 +44,8 @@ function responseOrder(responseOrder) {
   titleCart.textContent = "Votre commande";
   let TOPB__CodePromo = document.querySelector("#TOPB__CodePromo");
   TOPB__CodePromo.classList.add("hidden");
+  let emptyBasketButton = document.querySelector("#emptyBasketButton");
+  emptyBasketButton.classList.add("hidden");
   let TOPB__TotalAmounts = document.querySelector("#TOPB__TotalAmounts");
   TOPB__TotalAmounts.classList.remove("col-lg-6");
 

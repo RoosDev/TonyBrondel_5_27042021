@@ -103,7 +103,6 @@ function addBasket(camera) {
       }
     } else {
       // le panier est vide alors création du tableau et ajout du produit.
-      // console.log("le panier est vide alors création du tableau et ajout du produit.");
 
       const cart = [];
       cart.push({
@@ -115,7 +114,6 @@ function addBasket(camera) {
         selectedLens: lensAdd,
       });
 
-      // console.log(cart);
       localStorage.setItem("cart", JSON.stringify(cart));
       quantityProductInCart();
       messageBasket();

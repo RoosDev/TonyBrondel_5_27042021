@@ -5,7 +5,6 @@ async function getCameras() {
   const results = await fetch(urlAPI)
     .then((response) => response.json())
     .then((jsonData) => {
-      // jsonData.forEach(element => console.log(element));
       let cameraList = [];
       jsonData.forEach((element) =>
         cameraList.push(
@@ -19,7 +18,6 @@ async function getCameras() {
           )
         )
       );
-      console.log(cameraList);
       return cameraList;
     })
     .catch((error) => {
@@ -46,7 +44,6 @@ async function getCamera(id) {
     .catch((error) => {
       console.log(error);
     });
-  console.log(result);
   return result;
 }
 
@@ -76,7 +73,7 @@ async function sendOrder(detailOrder) {
       sessionStorage.setItem("orderId", jsonData.orderId);
       // affichage de la réponse de la commande
       responseOrder(jsonData);
-      
+
       return jsonData;
     })
     .catch((error) => {
