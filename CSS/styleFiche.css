@@ -1,85 +1,74 @@
-#ficheGlobale{
-    width: 100%;
-
+#ficheGlobale {
+  width: 100%;
 }
 
-    #cameraDescrip img{
-        width: 80%;
-        margin : 5px auto 10px auto;
-        border-radius: 10%;
-        
-    }
+#cameraDescrip img {
+  width: 80%;
+  margin: 5px auto 10px auto;
+  border-radius: 10%;
+}
 
-    #blocbuy--border{
-        padding: 0;
-        border-radius: 15%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(to right, #FFC821, #955FEC);
-        max-height : 450px;
-        box-shadow: 5px 5px 10px #955FEC;
-    }
+#blocbuy--border {
+  padding: 0;
+  border-radius: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #ffc821, #955fec);
+  max-height: 450px;
+  box-shadow: 5px 5px 10px #955fec;
+}
 
+#ficheBuy {
+  background-color: #fff;
+  border-radius: 15%;
+  margin: 5px;
+  width: 100%;
+  height: 98%;
+}
 
-    #ficheBuy{
-        background-color: #fff;
-        border-radius: 15%;
-        margin: 5px;
-        width: 100%;
-        height: 98%;
-    }
+#ficheBuy__Price--Title {
+  width: 80%;
+  margin: 5px auto 5px auto;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: underline;
+}
 
-    #ficheBuy__Price--Title{
-        width: 80%;
-        margin : 5px auto 5px auto;
-        text-align: center;
-        font-size : 1.5em;
-        font-weight: bold;
-        text-decoration: underline;
+#ficheBuy__Price {
+  width: 80%;
+  margin: 5px auto 5px auto;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
 
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
 
-    }
+form label {
+  width: 90%;
+  margin: 20px auto 10px auto;
+}
 
-    #ficheBuy__Price{
-        width: 80%;
-        margin : 5px auto 5px auto;
-        text-align: center;
-        font-size : 2em;
-        font-weight: bold;
+form select {
+  margin: 5px auto 10px auto;
+}
 
-    }
+form input {
+  width: 80px;
+  margin: 5px auto 10px auto;
+  text-align: center;
+}
 
-    form{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-        form label{
-            width: 90%;
-            margin: 20px auto 10px auto ;
-        }
-
-        form select{
-            margin: 5px auto 10px auto ;
-
-        }
-    
-    
-        form input{
-            width: 80px;
-            margin: 5px auto 10px auto ;
-            text-align: center;
-
-        }
-
-
-
-        form button{
-            width: 70%;
-            margin : 25px auto 5px auto;
-        }
+form button {
+  width: 70%;
+  margin: 25px auto 5px auto;
+}
