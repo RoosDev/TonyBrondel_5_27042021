@@ -18,21 +18,6 @@ function ficheProduit(camera) {
     "</p>";
 }
 
-//Fonction pour générer les options de la liste déroulante pour la commande
-
-function listeObjectifs(camera) {
-  let listLens = document.querySelector("#lensSelected");
-  let cameraLense = camera.lenses;
-
-  //Boucle pour lister les objectifs en tableau :
-  listLens.innerHTML += '<option value=""></option>';
-  for (var i = 0; i < cameraLense.length; i++) {
-    var option = cameraLense[i];
-    listLens.innerHTML +=
-      '<option value="' + option + '">' + option + "</option>";
-  }
-}
-
 // fonction pour ajouter les éléments au panier via un localstorage
 
 function addBasket(camera) {
@@ -126,7 +111,8 @@ async function main() {
   let IDProduit = parsedUrl.searchParams.get("_id");
   const cameraDetails = await getCamera(IDProduit);
   ficheProduit(cameraDetails);
-  listeObjectifs(cameraDetails);
+  // listeObjectifs(cameraDetails);
+  cameraDetails.lensesList;
   addBasket(cameraDetails);
 }
 

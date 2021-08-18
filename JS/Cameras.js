@@ -17,4 +17,6 @@ class Cameras {
       currency: "EUR",
     });
   }
+
+  
 }

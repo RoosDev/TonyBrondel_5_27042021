@@ -19,4 +19,16 @@ class Camera {
       " €"
     );
   }
+
+  get lensesList(){
+    let listLens = document.querySelector("#lensSelected");
+
+    listLens.innerHTML += '<option value=""></option>';
+    for (var i = 0; i < this.lenses.length; i++) {
+      var option = this.lenses[i];
+      listLens.innerHTML +=
+        '<option value="' + option + '">' + option + "</option>";
+    }
+  
+  }
 }

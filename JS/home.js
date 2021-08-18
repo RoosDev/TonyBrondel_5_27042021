@@ -1,7 +1,5 @@
 // paramétrage de l'affichage sur la page d'accueil pour le rendu des cards de chaque produit.
-
 function galleryHome(camera) {
-  // for(const camera of stock){
   let cardsList = document.querySelector("#cardsList");
 
   let cardBox = document.createElement("div");
@@ -51,7 +49,6 @@ function galleryHome(camera) {
   cardBoxPrice.appendChild(cardBoxPriceH5);
   cardBox.appendChild(cardBoxBodyA);
   cardBoxBodyA.appendChild(cardBoxLink);
-  // }
 }
 
 // fusion des fonctions pour intégration des données (une fois tout récupéré) dans la mise en page

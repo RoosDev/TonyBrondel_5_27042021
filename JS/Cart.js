@@ -1,27 +1,28 @@
 class Cart {
-  constructor(id, cameraName, price, imageUrl, quantity, selectedLense) {
-    // constructor(){
-    // this.items = JSON.parse(localStorage.getItem("cart"));
-    this.id = id;
-    this.cameraName = cameraName;
-    this.price = price;
-    this.imageUrl = imageUrl;
-    this.quantity = quantity;
-    this.selectedLense = selectedLense;
+  // constructor(id, cameraName, price, imageUrl, quantity, selectedLense) {
+    constructor(){
+    this.items = JSON.parse(localStorage.getItem("cart"));
+    // this.id = id;
+    // this.cameraName = cameraName;
+    // this.price = price;
+    // this.imageUrl = imageUrl;
+    // this.quantity = quantity;
+    // this.selectedLense = selectedLense;
   }
 
   getItems(id) {
-    console.log("id de get items : " + this.id);
+    console.log("id de get items : " + this.items.id);
     // console.log("nom de la camera get items : " + this.cameraname);
     return this.cameraName;
   }
   addItem(item) {
     // fonction to add an item to the cart
-    const cart = new Cart();
+    new Cart();
   }
 
   removeItem(item) {
     // fonction to remove an item from cart
+
   }
 
   get FormatedPrice() {
