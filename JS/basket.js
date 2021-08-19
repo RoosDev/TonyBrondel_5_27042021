@@ -2,6 +2,11 @@
 
 function tableOfProduct() {
   let cart = JSON.parse(localStorage.getItem("cart"));
+  // Cart.id.forEach(element => { console.log(element)})
+  // console.log('mon Cart : ' + cart);
+  // console.log('mon Cart : ' + Cart.getItems());
+  
+
 
   // fonction de suppression d'un produit
   function deleteOneProduct(indexOfProduct) {
@@ -86,23 +91,9 @@ function tableOfProduct() {
       deleteOneProduct();
     }
   } else {
-    let productLine = document.createElement("div");
-    productLine.classList.add("row");
-    productLine.classList.add("margeProduct");
-    productLine.classList.add("borderL");
-    let productLineEmpty = document.createElement("div");
-    productLineEmpty.classList.add("col");
-    productLineEmpty.classList.add("centerFull");
-    productLineEmpty.innerHTML = "<h2> Panier vide </h2>";
-    TOPB__List.appendChild(productLine);
-    productLine.appendChild(productLineEmpty);
 
-    let EmptyBasket = document.querySelector("#EmptyBasket");
-    EmptyBasket.classList.add("hidden");
-    let formBuyer = document.querySelector("#TOPB_Form");
-    formBuyer.classList.add("hidden");
-    let buttonValid = document.querySelector("#id__ValidBasket");
-    buttonValid.setAttribute("disabled", "");
+    messagePanierVide('Panier vide');
+
   }
 }
 
@@ -127,7 +118,8 @@ emptyCartButton.addEventListener("click", () => {
   document.location.reload();
 });
 
-function main() {
+async function main() {
+  // const listBasket = await Cart.getItems();
   tableOfProduct();
   setupAmounts();
 }

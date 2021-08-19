@@ -38,8 +38,10 @@ function amountOfCart() {
     amountofTaxesConvert        =       amountofTaxesDecimal.toLocaleString("EUR", {style: "currency", currency: "EUR"});
 }
 
+// Fonction pour passer une message au format de la page panier.
 
 function messagePanierVide(message){
+
     let productLine = document.createElement("div");
     productLine.classList.add("row");
     productLine.classList.add("margeProduct");
@@ -47,13 +49,17 @@ function messagePanierVide(message){
     let productLineEmpty = document.createElement("div");
     productLineEmpty.classList.add("col");
     productLineEmpty.classList.add("centerFull");
-    productLineEmpty.innerHTML = message;
+    productLineEmpty.innerHTML = '<h2>' + message + '</h2>';
     TOPB__List.appendChild(productLine);
     productLine.appendChild(productLineEmpty);
 
+    let EmptyBasket = document.querySelector("#EmptyBasket");
+    EmptyBasket.classList.add("hidden");
     let formBuyer = document.querySelector("#TOPB_Form");
     formBuyer.classList.add("hidden");
     let buttonValid = document.querySelector("#id__ValidBasket");
     buttonValid.setAttribute("disabled", "");
+
+
 
 }

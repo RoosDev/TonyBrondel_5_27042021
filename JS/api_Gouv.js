@@ -16,7 +16,6 @@ inputZipCode.addEventListener("input", () => {
           selectCity.innerHTML +=
             '<option value="' + element.nom + '">' + element.nom + "</option>";
           valueOption = document.querySelector("#city").value;
-          console.log(valueOption);
           document
             .querySelector("#id__ValidBasket")
             .removeAttribute("disabled");

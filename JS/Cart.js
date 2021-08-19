@@ -1,28 +1,52 @@
 class Cart {
   // constructor(id, cameraName, price, imageUrl, quantity, selectedLense) {
-    constructor(){
+  constructor() {
     this.items = JSON.parse(localStorage.getItem("cart"));
-    // this.id = id;
-    // this.cameraName = cameraName;
-    // this.price = price;
-    // this.imageUrl = imageUrl;
-    // this.quantity = quantity;
-    // this.selectedLense = selectedLense;
+    console.log(this.items);
   }
 
-  getItems(id) {
-    console.log("id de get items : " + this.items.id);
-    // console.log("nom de la camera get items : " + this.cameraname);
-    return this.cameraName;
+  getItems() {
+    return this.items;
   }
+
   addItem(item) {
     // fonction to add an item to the cart
-    new Cart();
+    if (typeof this.items !== "undefined" && this.items != null) {
+      this.items.push(
+        new Cart(
+          item.id,
+          item.name,
+          item.price,
+          item.imageUrl,
+          item.quantityAdd,
+          item.lensAdd
+        )
+      );
+    } else {
+      // le panier est vide alors création du tableau et ajout du produit.
+
+      this.items = [];
+      this.items.push({
+        id: camera.id,
+        cameraname: camera.name,
+        price: camera.price,
+        imageUrl: camera.imageUrl,
+        quantity: quantityAdd,
+        selectedLens: lensAdd,
+      });
+    }
   }
 
   removeItem(item) {
     // fonction to remove an item from cart
-
+    let deleteButton = document.querySelector("#deleteProduct");
+    deleteButton.addEventListener("click", function (e) {
+      console.log(item);
+      e.preventDefault();
+      cart.splice(item, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      document.location.reload();
+    });
   }
 
   get FormatedPrice() {
@@ -45,22 +69,22 @@ class Cart {
   }
 }
 
-if (localStorage.cart) {
-  let products = JSON.parse(localStorage.getItem("cart"));
-  console.log(products);
-  let cartList = [];
-  products.forEach((element) =>
-    cartList.push(
-      new Cart(
-        element.id,
-        element.cameraName,
-        element.price,
-        element.imageUrl,
-        element.quantity,
-        element.selectedLense
-      )
-    )
-  );
-} else {
-  let products = [];
-}
+// if (localStorage.cart) {
+//   let products = JSON.parse(localStorage.getItem("cart"));
+//   console.log(products);
+//   let cartList = [];
+//   products.forEach((element) =>
+//     cartList.push(
+//       new Cart(
+//         element.id,
+//         element.cameraName,
+//         element.price,
+//         element.imageUrl,
+//         element.quantity,
+//         element.selectedLense
+//       )
+//     )
+//   );
+// } else {
+//   let products = [];
+// }
