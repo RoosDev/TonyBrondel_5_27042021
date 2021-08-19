@@ -1,20 +1,20 @@
 // Tableau d 'affichage des produits présents dans le panier
 
-function tableOfProduct(cart) {
+function tableOfProduct(items) {
   // let cart = JSON.parse(localStorage.getItem("cart"));
   // Cart.id.forEach(element => { console.log(element)})
-  console.log('mon Cart : ' + cart);
-  // console.log('mon Cart : ' + Cart.getItems());
+  // console.log('mon Cart : ' + cart);
+  console.log('mon Cart : ' + items);
   
 
 
   // fonction de suppression d'un produit
-  function deleteOneProduct(indexOfProduct) {
+  function deleteOneProduct(index) {
     let deleteButton = document.querySelector("#deleteProduct");
     deleteButton.addEventListener("click", function (e) {
-      console.log(indexOfProduct);
+      console.log(index);
       e.preventDefault();
-      cart.splice(indexOfProduct, 1);
+      cart.splice(index, 1);
       localStorage.setItem("cart", JSON.stringify(cart));
       document.location.reload();
     });
@@ -22,11 +22,10 @@ function tableOfProduct(cart) {
 
   // demarrage de l'affichage du panier en fonction du fait qu'il soit vide ou qu'il contienne des produits.
 
-  // if(typeof Cart.getItems !== 'undefined' &&Cart.getItems != null){
-  if (typeof cart !== "undefined" && cart != null) {
-    for (var product in cart) {
-      const cartP = cart[product];
-      const indexOfProduct = cart.indexOf(cartP);
+  if (items.length) {
+    for (var i in items) {
+      const cartP = items[i];
+
       let productLine = document.createElement("div");
       productLine.classList.add("row");
       productLine.classList.add("margeProduct");
@@ -87,7 +86,9 @@ function tableOfProduct(cart) {
       productLineBloc.appendChild(productLineBlocAction);
       productLine.appendChild(productLinePrice);
       productLinePrice.appendChild(productLinePriceText);
-      deleteOneProduct();
+      
+      cartP.removeItem(indexOfProduct);
+      // deleteOneProduct(indexOfProduct);
     }
   } else {
 
@@ -117,9 +118,10 @@ emptyCartButton.addEventListener("click", () => {
 });
 
 async function main() {
-  const listBasket = await toCart();
-  tableOfProduct(listBasket);
-  amountOfCart(listBasket);
+  let cart = new Cart();
+  console.log(cart.items);
+  tableOfProduct(cart.items);
+  amountOfCart(cart.items);
   setupAmounts();
 }
 

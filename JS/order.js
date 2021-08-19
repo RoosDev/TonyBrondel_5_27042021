@@ -36,7 +36,7 @@ function responseOrder(responseOrder) {
   let orderResult = document.querySelector("#orderResult");
   let divbuttonValid = document.querySelector("#TOPB__ValidBasket");
   divbuttonValid.classList.add("hidden");
-
+    // boucle pour appliquer la class à tous les div concernés
   let divbuttonDeleteProduct = document.querySelectorAll(".productLineBlocAction");
   for(i=0; i < divbuttonDeleteProduct.length ; i++){
     divbuttonDeleteProduct[i].classList.add("hidden");
