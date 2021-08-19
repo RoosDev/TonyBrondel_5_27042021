@@ -1,31 +1,26 @@
 // Tableau d 'affichage des produits présents dans le panier
 
 function tableOfProduct(items) {
-  // let cart = JSON.parse(localStorage.getItem("cart"));
-  // Cart.id.forEach(element => { console.log(element)})
-  // console.log('mon Cart : ' + cart);
-  console.log('mon Cart : ' + items);
-  
-
-
   // fonction de suppression d'un produit
-  function deleteOneProduct(index) {
-    let deleteButton = document.querySelector("#deleteProduct");
-    deleteButton.addEventListener("click", function (e) {
-      console.log(index);
-      e.preventDefault();
-      cart.splice(index, 1);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      document.location.reload();
-    });
-  }
+  // function deleteOneProduct(index) {
+  //   let deleteButton = document.querySelector("#deleteProduct");
+  //   deleteButton.addEventListener("click", function (e) {
+  //     console.log(index);
+  //     e.preventDefault();
+  //     cart.splice(index, 1);
+  //     localStorage.setItem("cart", JSON.stringify(cart));
+  //     document.location.reload();
+  //   });
+  // }
 
   // demarrage de l'affichage du panier en fonction du fait qu'il soit vide ou qu'il contienne des produits.
 
   if (items.length) {
-    for (var i in items) {
-      const cartP = items[i];
-
+    for (var i of items) {
+      console.log(i);
+      let myIndex = items.indexOf(i);
+      console.log(myIndex)
+      
       let productLine = document.createElement("div");
       productLine.classList.add("row");
       productLine.classList.add("margeProduct");
@@ -36,9 +31,9 @@ function tableOfProduct(items) {
       productLineImage.classList.add("centerFull");
       productLineImage.innerHTML =
         '<img src="' +
-        cartP.imageUrl +
+        i.imageUrl +
         '" class="card-img-top" alt="' +
-        cartP.cameraName +
+        i.cameraname +
         '"/ >';
 
       let productLineBloc = document.createElement("div");
@@ -48,35 +43,31 @@ function tableOfProduct(items) {
       productLineBlocTitle.classList.add("Dark");
       productLineBlocTitle.innerHTML =
         '<a href="../pages/detailProduits.html?_id=' +
-        cartP.id +
-        '">"' +
-        cartP.cameraName +
+        i.id +
+        '">' +
+        i.cameraname +
         " - avec l'objectif " +
-        cartP.selectedLens +
+        i.selectedLens +
         "</a>";
 
       let productLineBlocText = document.createElement("p");
-      productLineBlocText.innerHTML = "Quantité : " + cartP.quantity;
+      productLineBlocText.innerHTML = "Quantité : " + i.quantity;
 
       let productLineBlocAction = document.createElement("p");
       productLineBlocAction.classList.add("productLineBlocAction");
       productLineBlocAction.innerHTML =
-        '<button id="deleteProduct" type="button" class="btn btn-light">Supprimer l\'article</button>';
+        '<button id="deleteProduct'+myIndex+'" type="button" class="btn btn-light">Supprimer l\'article</button>';
 
       let productLinePrice = document.createElement("div");
       productLinePrice.classList.add("col-2");
       productLineImage.classList.add("centerFull");
       let productLinePriceText = document.createElement("p");
-      let LinePrice = (
-        (Number(cartP.price) / 100) *
-        cartP.quantity
-      ).toLocaleString("EUR", {
+      let LinePrice = ((Number(i.price) * i.quantity)/100).toLocaleString("EUR", {
         style: "currency",
         currency: "EUR",
       });
+      console.log('Prix x qté : ' );
       productLinePriceText.innerHTML = LinePrice;
-      //Stockage du montant de la commande
-      sessionStorage.setItem("amountTTC", LinePrice);
 
       TOPB__List.appendChild(productLine);
       productLine.appendChild(productLineImage);
@@ -87,9 +78,11 @@ function tableOfProduct(items) {
       productLine.appendChild(productLinePrice);
       productLinePrice.appendChild(productLinePriceText);
       
-      cartP.removeItem(indexOfProduct);
-      // deleteOneProduct(indexOfProduct);
+
+        // items.deleteItem(myIndex);
+
     }
+
   } else {
 
     messagePanierVide('Panier vide');
@@ -97,12 +90,19 @@ function tableOfProduct(items) {
   }
 }
 
+
+
+
+
 // intégration des montants dans la page
 function setupAmounts() {
 
   let boxPriceWithTaxes = document.querySelector(".PriceTTCP");
   let boxPriceofTaxes = document.querySelector(".PriceTVAP");
   let boxPriceWithoutTaxes = document.querySelector(".PriceHTP");
+
+        // Stockage du montant de la commande
+        sessionStorage.setItem("amountTTC", amountWithTaxesConvert);
 
   boxPriceWithTaxes.textContent = amountWithTaxesConvert;
   boxPriceofTaxes.textContent = amountofTaxesConvert;
