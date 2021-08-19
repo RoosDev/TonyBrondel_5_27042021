@@ -36,8 +36,11 @@ function responseOrder(responseOrder) {
   let orderResult = document.querySelector("#orderResult");
   let divbuttonValid = document.querySelector("#TOPB__ValidBasket");
   divbuttonValid.classList.add("hidden");
-  let divbuttonDeleteProduct = document.querySelector(".productLineBlocAction");
-  divbuttonDeleteProduct.classList.add("hidden");
+
+  let divbuttonDeleteProduct = document.querySelectorAll(".productLineBlocAction");
+  for(i=0; i < divbuttonDeleteProduct.length ; i++){
+    divbuttonDeleteProduct[i].classList.add("hidden");
+  }
   let formOrderer = document.querySelector("#formOrderer");
   formOrderer.classList.add("hidden");
   let titleCart = document.querySelector(".titleCart");

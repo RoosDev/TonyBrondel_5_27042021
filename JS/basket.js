@@ -1,9 +1,9 @@
 // Tableau d 'affichage des produits présents dans le panier
 
-function tableOfProduct() {
-  let cart = JSON.parse(localStorage.getItem("cart"));
+function tableOfProduct(cart) {
+  // let cart = JSON.parse(localStorage.getItem("cart"));
   // Cart.id.forEach(element => { console.log(element)})
-  // console.log('mon Cart : ' + cart);
+  console.log('mon Cart : ' + cart);
   // console.log('mon Cart : ' + Cart.getItems());
   
 
@@ -27,7 +27,6 @@ function tableOfProduct() {
     for (var product in cart) {
       const cartP = cart[product];
       const indexOfProduct = cart.indexOf(cartP);
-
       let productLine = document.createElement("div");
       productLine.classList.add("row");
       productLine.classList.add("margeProduct");
@@ -40,7 +39,7 @@ function tableOfProduct() {
         '<img src="' +
         cartP.imageUrl +
         '" class="card-img-top" alt="' +
-        cartP.cameraname +
+        cartP.cameraName +
         '"/ >';
 
       let productLineBloc = document.createElement("div");
@@ -52,7 +51,7 @@ function tableOfProduct() {
         '<a href="../pages/detailProduits.html?_id=' +
         cartP.id +
         '">"' +
-        cartP.cameraname +
+        cartP.cameraName +
         " - avec l'objectif " +
         cartP.selectedLens +
         "</a>";
@@ -99,7 +98,6 @@ function tableOfProduct() {
 
 // intégration des montants dans la page
 function setupAmounts() {
-  amountOfCart();
 
   let boxPriceWithTaxes = document.querySelector(".PriceTTCP");
   let boxPriceofTaxes = document.querySelector(".PriceTVAP");
@@ -119,8 +117,9 @@ emptyCartButton.addEventListener("click", () => {
 });
 
 async function main() {
-  // const listBasket = await Cart.getItems();
-  tableOfProduct();
+  const listBasket = await toCart();
+  tableOfProduct(listBasket);
+  amountOfCart(listBasket);
   setupAmounts();
 }
 

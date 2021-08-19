@@ -19,8 +19,7 @@ function quantityProductInCart() {
 quantityProductInCart()
 
 
-function amountOfCart() {
-    let cart                    =       JSON.parse(localStorage.getItem("cart"));
+function amountOfCart(cart) {
     let amountWithTaxes         =       0;
     let taxRate                 =       0.2;
 
@@ -38,7 +37,7 @@ function amountOfCart() {
     amountofTaxesConvert        =       amountofTaxesDecimal.toLocaleString("EUR", {style: "currency", currency: "EUR"});
 }
 
-// Fonction pour passer une message au format de la page panier.
+// Fonction pour passer un message au format de la page panier.
 
 function messagePanierVide(message){
 

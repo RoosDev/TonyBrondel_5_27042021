@@ -1,12 +1,24 @@
+// class Cart {
+//   constructor() {
+//     this.items = JSON.parse(localStorage.getItem("cart"));
+
+//   }
 class Cart {
-  // constructor(id, cameraName, price, imageUrl, quantity, selectedLense) {
-  constructor() {
-    this.items = JSON.parse(localStorage.getItem("cart"));
-    console.log(this.items);
+  constructor(id, cameraName, price, imageUrl, quantity, selectedLens) {
+    (this.id = id),
+      (this.cameraName = cameraName),
+      (this.price = price),
+      (this.imageUrl = imageUrl),
+      (this.quantity = quantity),
+      (this.selectedLens = selectedLens);
   }
 
-  getItems() {
-    return this.items;
+  get Items() {
+    for (i = 0; i > Cart.length; i++) {
+      console.log(Cart.length);
+      console.log("detail this.items : " + this.cameraName);
+    }
+    return this.cameraName;
   }
 
   addItem(item) {
@@ -27,37 +39,35 @@ class Cart {
 
       this.items = [];
       this.items.push({
-        id: camera.id,
-        cameraname: camera.name,
-        price: camera.price,
-        imageUrl: camera.imageUrl,
-        quantity: quantityAdd,
-        selectedLens: lensAdd,
+        id: item.id,
+        cameraname: item.name,
+        price: item.price,
+        imageUrl: item.imageUrl,
+        quantity: item.quantityAdd,
+        selectedLens: item.lensAdd,
       });
     }
   }
 
   removeItem(item) {
     // fonction to remove an item from cart
-    let deleteButton = document.querySelector("#deleteProduct");
-    deleteButton.addEventListener("click", function (e) {
-      console.log(item);
-      e.preventDefault();
-      cart.splice(item, 1);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      document.location.reload();
-    });
+    cart.splice(item, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    document.location.reload();
   }
 
-  get FormatedPrice() {
-    return (
-      this.price / 100 +
-      "," +
-      (this.price % 100).toString().padStart(2, "0") +
-      " €"
-    );
+  get formatedPrice() {
+    // return (
+    //   this.price / 100 +
+    //   "," +
+    //   (this.price % 100).toString().padStart(2, "0") +
+    //   " €"
+    // );
     // => pas toFixed  on veut 2 décimales apres la virgule : padStart
-    // return (this.price / 100 ).toLocaleString("EUR", {style: "currency", currency: "EUR"});
+    return (this.price / 100).toLocaleString("EUR", {
+      style: "currency",
+      currency: "EUR",
+    });
   }
 
   getProductValue() {
@@ -69,22 +79,24 @@ class Cart {
   }
 }
 
-// if (localStorage.cart) {
-//   let products = JSON.parse(localStorage.getItem("cart"));
-//   console.log(products);
-//   let cartList = [];
-//   products.forEach((element) =>
-//     cartList.push(
-//       new Cart(
-//         element.id,
-//         element.cameraName,
-//         element.price,
-//         element.imageUrl,
-//         element.quantity,
-//         element.selectedLense
-//       )
-//     )
-//   );
-// } else {
-//   let products = [];
-// }
+async function toCart() {
+  let productsInCart = await JSON.parse(localStorage.getItem("cart"));
+  if (localStorage.cart) {
+    let cartList = [];
+    productsInCart.forEach((element) =>
+      cartList.push(
+        new Cart(
+          element.id,
+          element.cameraname,
+          element.price,
+          element.imageUrl,
+          element.quantity,
+          element.selectedLens
+        )
+      )
+    );
+    return cartList;
+  } else {
+    let products = [];
+  }
+}
