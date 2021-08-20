@@ -1,36 +1,21 @@
 class Cart {
   constructor() {
     this.items = JSON.parse(localStorage.getItem("cart")) || [];
-    console.log(this.items)
   }
 
-  getItems() {
-    return this.Items;
+  get theItems() {
+    return this.items;
   }
 
-  addItem(item) {
-    // fonction to add an item to the cart
-  }
-
-  deleteItem(item) {
+  deleteItem(itemSelect) {
     // fonction to remove an item from cart
-
-    let deleteButton = document.querySelector('#deleteProduct'+item);
-    console.log("mon index i N°1 : " + item);
-
-    deleteButton.addEventListener("click", function () {
-
-      console.log("mon index i N°2 : " + item);
-
-      this.Items.unset(item);
-      let cart = new Cart();
-
-      localStorage.setItem("cart", JSON.stringify(cart));
-      document.location.reload();
-    })
+    const myCart = this.items;
+    myCart.splice(itemSelect, 1);
+    localStorage.setItem("cart", JSON.stringify(myCart));
+    document.location.reload();
   }
 
-  get formatedPrice() {
+  getformatedPrice() {
     // return (
     //   this.price / 100 +
     //   "," +
@@ -44,18 +29,11 @@ class Cart {
     });
   }
 
-  getformatedPriceWithQuantity(item) {
-    return ((Number(item.price) * item.quantity)/100).toLocaleString("EUR", {
+  getTotalValue() {
+    // fonction to calculate the total value of the cart
+    return ((Number(this.price) * this.quantity) / 100).toLocaleString("EUR", {
       style: "currency",
       currency: "EUR",
     });
-  }
-
-  getProductValue() {
-    // fonction qui calcule le montant du produit en fonction de la quantité
-  }
-
-  getTotalValue() {
-    // fonction to calculate the total value of the cart
   }
 }

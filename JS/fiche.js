@@ -44,7 +44,7 @@ function addBasket(camera) {
       buttonAdd.classList.add("hidden");
       contenerAlert.classList.remove("hidden");
       boxMessage = window.setTimeout(messageBox, 5000);
-      document.querySelector('#boxMessage').innerHTML = message;
+      document.querySelector("#boxMessage").innerHTML = message;
     }
     function messageBox() {
       contenerAlert.classList.add("hidden");
@@ -73,7 +73,9 @@ function addBasket(camera) {
 
         localStorage.setItem("cart", JSON.stringify(cart));
         quantityProductInCart();
-        messageBasket('<strong><i class="fas fa-thumbs-up margin5"></i></strong>Quantité modifiée .');
+        messageBasket(
+          '<strong><i class="fas fa-thumbs-up margin5"></i></strong>Quantité modifiée .'
+        );
       } else {
         cart.push({
           id: camera.id,
@@ -85,7 +87,9 @@ function addBasket(camera) {
         });
         localStorage.setItem("cart", JSON.stringify(cart));
         quantityProductInCart();
-        messageBasket('<strong><i class="fas fa-thumbs-up margin5"></i></strong>C\'est dans le panier.');
+        messageBasket(
+          '<strong><i class="fas fa-thumbs-up margin5"></i></strong>C\'est dans le panier.'
+        );
       }
     } else {
       // le panier est vide alors création du tableau et ajout du produit.
@@ -102,7 +106,9 @@ function addBasket(camera) {
 
       localStorage.setItem("cart", JSON.stringify(cart));
       quantityProductInCart();
-      messageBasket('<strong><i class="fas fa-thumbs-up margin5"></i></strong>C\'est dans le panier.');
+      messageBasket(
+        '<strong><i class="fas fa-thumbs-up margin5"></i></strong>C\'est dans le panier.'
+      );
     }
   });
 }

@@ -1,64 +1,75 @@
 function quantityProductInCart() {
-    let cart                    =       JSON.parse(localStorage.getItem("cart"));
-    let quantityTotal           =       0;
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  let quantityTotal = 0;
 
-    for(var product in cart){
-        const cartP             =       cart[product];
-        quantityTotal           =       Number(quantityTotal) + Number(cartP.quantity);
+  for (var product in cart) {
+    const cartP = cart[product];
+    quantityTotal = Number(quantityTotal) + Number(cartP.quantity);
 
-        let navBasket           =       document.querySelector('#navBasket');
+    let navBasket = document.querySelector("#navBasket");
 
-        if(quantityTotal > 1){
-            navBasket.innerHTML     =       '<i class="fas fa-shopping-cart margin5"></i>' + quantityTotal + ' articles';
-        }else{
-            navBasket.innerHTML     =       '<i class="fas fa-shopping-cart margin5"></i>' + quantityTotal + ' article';
-        }
+    if (quantityTotal > 1) {
+      navBasket.innerHTML =
+        '<i class="fas fa-shopping-cart margin5"></i>' +
+        quantityTotal +
+        " articles";
+    } else {
+      navBasket.innerHTML =
+        '<i class="fas fa-shopping-cart margin5"></i>' +
+        quantityTotal +
+        " article";
     }
+  }
 }
 
-quantityProductInCart()
-
+quantityProductInCart();
 
 function amountOfCart(cart) {
-    let amountWithTaxes         =       0;
-    let taxRate                 =       0.2;
+  let amountWithTaxes = 0;
+  let taxRate = 0.2;
 
-    for(var product in cart){
-        const cartP                 =       cart[product];
-        amountWithTaxes             =       Number(amountWithTaxes)  +   (Number(cartP.price) * Number(cartP.quantity));
-    }
+  for (var product in cart) {
+    const cartP = cart[product];
+    amountWithTaxes =
+      Number(amountWithTaxes) + Number(cartP.price) * Number(cartP.quantity);
+  }
 
-    amountWithTaxesDecimal             =        amountWithTaxes   /   100;
-    amountWithoutTaxesDecimal          =       (amountWithTaxes   /   (1+taxRate))/100;
-    amountofTaxesDecimal               =       (amountWithTaxesDecimal   -   amountWithoutTaxesDecimal);
+  amountWithTaxesDecimal = amountWithTaxes / 100;
+  amountWithoutTaxesDecimal = amountWithTaxes / (1 + taxRate) / 100;
+  amountofTaxesDecimal = amountWithTaxesDecimal - amountWithoutTaxesDecimal;
 
-    amountWithTaxesConvert      =       amountWithTaxesDecimal.toLocaleString("EUR", {style: "currency", currency: "EUR"});
-    amountWithoutTaxesConvert   =       amountWithoutTaxesDecimal.toLocaleString("EUR", {style: "currency", currency: "EUR"});
-    amountofTaxesConvert        =       amountofTaxesDecimal.toLocaleString("EUR", {style: "currency", currency: "EUR"});
+  amountWithTaxesConvert = amountWithTaxesDecimal.toLocaleString("EUR", {
+    style: "currency",
+    currency: "EUR",
+  });
+  amountWithoutTaxesConvert = amountWithoutTaxesDecimal.toLocaleString("EUR", {
+    style: "currency",
+    currency: "EUR",
+  });
+  amountofTaxesConvert = amountofTaxesDecimal.toLocaleString("EUR", {
+    style: "currency",
+    currency: "EUR",
+  });
 }
 
 // Fonction pour passer un message au format de la page panier.
 
-function messagePanierVide(message){
+function messagePanierVide(message) {
+  let productLine = document.createElement("div");
+  productLine.classList.add("row");
+  productLine.classList.add("margeProduct");
+  productLine.classList.add("borderL");
+  let productLineEmpty = document.createElement("div");
+  productLineEmpty.classList.add("col");
+  productLineEmpty.classList.add("centerFull");
+  productLineEmpty.innerHTML = "<h2>" + message + "</h2>";
+  TOPB__List.appendChild(productLine);
+  productLine.appendChild(productLineEmpty);
 
-    let productLine = document.createElement("div");
-    productLine.classList.add("row");
-    productLine.classList.add("margeProduct");
-    productLine.classList.add("borderL");
-    let productLineEmpty = document.createElement("div");
-    productLineEmpty.classList.add("col");
-    productLineEmpty.classList.add("centerFull");
-    productLineEmpty.innerHTML = '<h2>' + message + '</h2>';
-    TOPB__List.appendChild(productLine);
-    productLine.appendChild(productLineEmpty);
-
-    let EmptyBasket = document.querySelector("#EmptyBasket");
-    EmptyBasket.classList.add("hidden");
-    let formBuyer = document.querySelector("#TOPB_Form");
-    formBuyer.classList.add("hidden");
-    let buttonValid = document.querySelector("#id__ValidBasket");
-    buttonValid.setAttribute("disabled", "");
-
-
-
+  let EmptyBasket = document.querySelector("#EmptyBasket");
+  EmptyBasket.classList.add("hidden");
+  let formBuyer = document.querySelector("#TOPB_Form");
+  formBuyer.classList.add("hidden");
+  let buttonValid = document.querySelector("#id__ValidBasket");
+  buttonValid.setAttribute("disabled", "");
 }

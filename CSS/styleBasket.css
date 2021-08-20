@@ -1,43 +1,38 @@
-
-
-
-#TOPB__ColAmount{
-    border: 3px solid #ffc107;
-    border-radius: 15px;
-
+#TOPB__ColAmount {
+  border: 3px solid #ffc107;
+  border-radius: 15px;
 }
 
-
-#TOPB__CodePromo label, #TOPB__CodePromo input{
-    align-self: center;
-    margin-right: auto;
-    margin-left: auto;
+#TOPB__CodePromo label,
+#TOPB__CodePromo input {
+  align-self: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-#TOPB__CodePromo form, #TOPB__ValidBasket .btn{
-    width: 80%;
-    align-self: center;
-    margin-right: auto;
-    margin-left: auto;
+#TOPB__CodePromo form,
+#TOPB__ValidBasket .btn {
+  width: 80%;
+  align-self: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.borderL{
-    border-left: 3px solid #ffc107;
-    border-bottom: 3px solid #ffc107;
-    border-radius: 15px;
+.borderL {
+  border-left: 3px solid #ffc107;
+  border-bottom: 3px solid #ffc107;
+  border-radius: 15px;
 }
 
-.margeProduct{
-    margin-top: 5px;
-    margin-bottom: 5px;;
+.margeProduct {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.centerFull{
-    margin:auto;
-
+.centerFull {
+  margin: auto;
 }
-.centerFull h2{
-    margin: 130px;
-    text-align: center;
+.centerFull h2 {
+  margin: 130px;
+  text-align: center;
 }
-
