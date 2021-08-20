@@ -104,9 +104,10 @@ emptyCartButton.addEventListener("click", () => {
   document.location.reload();
 });
 
-async function main() {
-  let cart = new Cart();
-  tableOfProduct(cart);
+// Appel de la fonction principale pour lancer les fonctions utiles avec les paramètres nécessaires
+function main() {
+  let cart = new Cart(); // instanciation de la Classe Cart pour récupérer le LocalStorage
+  tableOfProduct(cart); // envoi de la Class panier pour traitement et affichage
   amountOfCart(cart.items);
   setupAmounts();
 }
