@@ -5,12 +5,14 @@ Site complet pour l'achat d'appareils photos
 
 ----------------------------
 
-## Prérequis##
+## Prérequis ##
 
 Pour installer et faire fonctionner ce site vous devez avoir installer :
+
+* Git
 * Node 
 * 'npm'
-* Git (facultatif)
+
 
 ----------------------------
 
