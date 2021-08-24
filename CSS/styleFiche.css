@@ -3,9 +3,10 @@
 }
 
 #cameraDescrip img {
-  width: 80%;
-  margin: 5px auto 10px auto;
-  border-radius: 10%;
+  width: 100%;
+  max-width: 650px;
+  margin-top: 5px;
+  margin-bottom: 10px ;
 }
 
 #blocbuy--border {

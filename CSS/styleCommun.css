@@ -70,3 +70,8 @@ footer div[id*="footer"] a {
 footer div[id*="footer"] a:hover {
   text-decoration: underline;
 }
+
+.marginAuto-horizontal {
+  margin-right: auto;
+  margin-left: auto;
+}
