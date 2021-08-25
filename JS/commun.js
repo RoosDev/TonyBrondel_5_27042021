@@ -24,33 +24,6 @@ function quantityProductInCart() {
 
 quantityProductInCart();
 
-function amountOfCart(cart) {
-  let amountWithTaxes = 0;
-  let taxRate = 0.2;
-
-  for (var product in cart) {
-    const cartP = cart[product];
-    amountWithTaxes =
-      Number(amountWithTaxes) + Number(cartP.price) * Number(cartP.quantity);
-  }
-
-  amountWithTaxesDecimal = amountWithTaxes / 100;
-  amountWithoutTaxesDecimal = amountWithTaxes / (1 + taxRate) / 100;
-  amountofTaxesDecimal = amountWithTaxesDecimal - amountWithoutTaxesDecimal;
-
-  amountWithTaxesConvert = amountWithTaxesDecimal.toLocaleString("EUR", {
-    style: "currency",
-    currency: "EUR",
-  });
-  amountWithoutTaxesConvert = amountWithoutTaxesDecimal.toLocaleString("EUR", {
-    style: "currency",
-    currency: "EUR",
-  });
-  amountofTaxesConvert = amountofTaxesDecimal.toLocaleString("EUR", {
-    style: "currency",
-    currency: "EUR",
-  });
-}
 
 // Fonction pour passer un message au format de la page panier.
 

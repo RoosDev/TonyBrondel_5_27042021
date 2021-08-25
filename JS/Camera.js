@@ -22,12 +22,10 @@ class Camera {
 
   get lensesList() {
     let divForm = document.querySelector("#lensSelectedMenu");
-
-    
     divForm.innerHTML =
-      '<select id="lensSelected" class="form-control" required > <option value=""></option></select>';
+      '<label for="lensSelected">Choisissez votre objectif :</label><select id="lensSelected" class="form-control" required > <option value=""></option></select>';
     
-      let listLens = document.querySelector("#lensSelected");
+    let listLens = document.querySelector("#lensSelected");
 
     for (var i = 0; i < this.lenses.length; i++) {
       var option = this.lenses[i];

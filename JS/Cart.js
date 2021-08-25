@@ -36,4 +36,35 @@ class Cart {
       currency: "EUR",
     });
   }
+
+  getCartTotal() {
+    let amountWithTaxes = 0;
+    let taxRate = 0.2;
+  
+    for (const item of this.items) {
+      amountWithTaxes += Number(item.price) * Number(item.quantity);
+    }
+  
+    let amountWithTaxesDecimal = amountWithTaxes / 100;
+    let amountWithoutTaxesDecimal = amountWithTaxes / (1 + taxRate) / 100;
+    let amountofTaxesDecimal = amountWithTaxesDecimal - amountWithoutTaxesDecimal;
+  
+    const amountWithTaxesConvert = amountWithTaxesDecimal.toLocaleString("EUR", {
+      style: "currency",
+      currency: "EUR",
+    });
+    const amountWithoutTaxesConvert = amountWithoutTaxesDecimal.toLocaleString("EUR", {
+      style: "currency",
+      currency: "EUR",
+    });
+    const amountofTaxesConvert = amountofTaxesDecimal.toLocaleString("EUR", {
+      style: "currency",
+      currency: "EUR",
+    });
+    return {
+      taxIncluded : amountWithTaxesConvert,
+      taxExcluded : amountWithoutTaxesConvert,
+      VAT : amountofTaxesConvert
+    }
+  }
 }

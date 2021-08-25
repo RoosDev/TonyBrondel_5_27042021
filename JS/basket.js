@@ -1,15 +1,11 @@
 // Tableau d 'affichage des produits présents dans le panier
 
-function tableOfProduct(myCart) {
+function displayProducts(myCart) {
   // demarrage de l'affichage du panier en fonction du fait qu'il soit vide ou qu'il contienne des produits.
-  let items = myCart.items;
 
-  if (items.length) {
-    for (var i of items) {
-      console.log(items);
-      console.log(i);
-      let myIndex = items.indexOf(i);
-      console.log(myIndex);
+  if (myCart.items.length) {
+    for (const item of myCart.items) {
+      let myIndex = myCart.items.indexOf(item);
 
       let productLine = document.createElement("div");
       productLine.classList.add("row");
@@ -21,9 +17,9 @@ function tableOfProduct(myCart) {
       productLineImage.classList.add("centerFull");
       productLineImage.innerHTML =
         '<img src="' +
-        i.imageUrl +
+        item.imageUrl +
         '" class="card-img-top" alt="' +
-        i.cameraname +
+        item.cameraname +
         '"/ >';
 
       let productLineBloc = document.createElement("div");
@@ -33,15 +29,15 @@ function tableOfProduct(myCart) {
       productLineBlocTitle.classList.add("Dark");
       productLineBlocTitle.innerHTML =
         '<a href="../pages/detailProduits.html?_id=' +
-        i.id +
+        item.id +
         '">' +
-        i.cameraname +
+        item.cameraname +
         " - avec l'objectif " +
-        i.selectedLens +
+        item.selectedLens +
         "</a>";
 
       let productLineBlocText = document.createElement("p");
-      productLineBlocText.innerHTML = "Quantité : " + i.quantity;
+      productLineBlocText.innerHTML = "Quantité : " + item.quantity;
 
       let productLineBlocAction = document.createElement("p");
       productLineBlocAction.classList.add("productLineBlocAction");
@@ -53,14 +49,13 @@ function tableOfProduct(myCart) {
       productLinePrice.classList.add("col-2");
       productLineImage.classList.add("centerFull");
       let productLinePriceText = document.createElement("p");
-      let LinePrice = ((Number(i.price) * i.quantity) / 100).toLocaleString(
+      let LinePrice = ((Number(item.price) * item.quantity) / 100).toLocaleString(
         "EUR",
         {
           style: "currency",
           currency: "EUR",
         }
       );
-      console.log("Prix x qté : ");
       productLinePriceText.innerHTML = LinePrice;
 
       TOPB__List.appendChild(productLine);
@@ -83,17 +78,18 @@ function tableOfProduct(myCart) {
 }
 
 // intégration des montants dans la page
-function setupAmounts() {
-  let boxPriceWithTaxes = document.querySelector(".PriceTTCP");
-  let boxPriceofTaxes = document.querySelector(".PriceTVAP");
-  let boxPriceWithoutTaxes = document.querySelector(".PriceHTP");
+function displayCartTotal(amount) {
+  let boxPriceWithTaxes = document.querySelector("#PriceTTCP");
+  let boxPriceofTaxes = document.querySelector("#PriceTVAP");
+  let boxPriceWithoutTaxes = document.querySelector("#PriceHTP");
 
   // Stockage du montant de la commande
-  sessionStorage.setItem("amountTTC", amountWithTaxesConvert);
+  sessionStorage.setItem("amountTTC", amount.taxIncluded);
 
-  boxPriceWithTaxes.textContent = amountWithTaxesConvert;
-  boxPriceofTaxes.textContent = amountofTaxesConvert;
-  boxPriceWithoutTaxes.textContent = amountWithoutTaxesConvert;
+  boxPriceWithTaxes.textContent = amount.taxIncluded;
+  boxPriceofTaxes.textContent = amount.VAT;
+  boxPriceWithoutTaxes.textContent = amount.taxExcluded;
+
 }
 
 // action pour vider le panier au clic
@@ -107,9 +103,8 @@ emptyCartButton.addEventListener("click", () => {
 // Appel de la fonction principale pour lancer les fonctions utiles avec les paramètres nécessaires
 function main() {
   let cart = new Cart(); // instanciation de la Classe Cart pour récupérer le LocalStorage
-  tableOfProduct(cart); // envoi de la Class panier pour traitement et affichage
-  amountOfCart(cart.items);
-  setupAmounts();
+  displayProducts(cart); // envoi de la Class panier pour traitement et affichage
+  displayCartTotal(cart.getCartTotal());
 }
 
 main();

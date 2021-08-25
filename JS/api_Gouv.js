@@ -1,5 +1,13 @@
 // selectCity
 let valueOption = "";
+let inputZipCode = document.querySelector("#zipCode");
+
+
+let divCityMenuBloc = document.querySelector('#divCityMenu')
+divCityMenuBloc.innerHTML='<label for="city" class="form-label">Ville* :</label> <select name="city" id="city" class="form-control" required ></select>';     
+
+let selectCity = document.querySelector("#city");
+
 
 inputZipCode.addEventListener("input", () => {
   const urlGeoApi =
@@ -10,6 +18,8 @@ inputZipCode.addEventListener("input", () => {
   fetch(urlGeoApi)
     .then((response) => response.json())
     .then((results) => {
+
+
       selectCity.innerHTML = "";
       if (results.length) {
         results.forEach((element) => {

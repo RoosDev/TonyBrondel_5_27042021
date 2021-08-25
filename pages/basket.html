@@ -164,14 +164,8 @@
                           required
                         />
                       </div>
-                      <div class="col-8">
-                        <label for="city" class="form-label">Ville* :</label>
-                        <select
-                          name="city"
-                          id="city"
-                          class="form-control"
-                          required
-                        ></select>
+                      <div id="divCityMenu" class="col-8">
+                        
                       </div>
                       <div id="verifZipCode" class="row hidden">yop</div>
                     </div>
@@ -245,7 +239,7 @@
                       <p>Montant HT :</p>
                     </div>
                     <div class="col-6 PriceHT">
-                      <p class="PriceHTP"></p>
+                      <p id="PriceHTP"></p>
                     </div>
                   </div>
                   <div class="row">
@@ -253,7 +247,7 @@
                       <p>Montant TVA :</p>
                     </div>
                     <div class="col-6 PriceTVA">
-                      <p class="PriceTVAP"></p>
+                      <p id="PriceTVAP"></p>
                     </div>
                   </div>
                   <div class="row">
@@ -261,7 +255,7 @@
                       <p class="h4">Montant TTC :</p>
                     </div>
                     <div class="col-6 PriceTTC">
-                      <p class="h4 PriceTTCP"></p>
+                      <p id="PriceTTCP" class="h4"></p>
                     </div>
                   </div>
                 </div>
@@ -310,8 +304,8 @@
     <script src="../JS/Cart.js"></script>
     <script src="../JS/commun.js"></script>
     <script src="../JS/basket.js"></script>
-    <script src="../JS/regexOthers.js"></script>
     <script src="../JS/api_Gouv.js"></script>
+    <script src="../JS/regexOthers.js"></script>
     <script src="../JS/verifValidZipCity.js"></script>
     <script src="../JS/order.js"></script>
   </body>

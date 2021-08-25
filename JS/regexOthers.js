@@ -13,8 +13,6 @@ const regexEmail = new RegExp(
 let inputNom = document.querySelector("#lastname");
 let inputPrenom = document.querySelector("#firstname");
 let inputAdresse = document.querySelector("#adress");
-let inputZipCode = document.querySelector("#zipCode");
-let selectCity = document.querySelector("#city");
 let inputTel = document.querySelector("#phone");
 let inputEmail = document.querySelector("#email");
 
